@@ -217,15 +217,8 @@
   p.desc{color:var(--muted);font-size:16.5px;margin:18px 0 0;max-width:64ch}
   .project .metrics{margin-top:18px}
   .vid-row{display:flex;gap:14px;margin-top:24px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
-  .vid{position:relative;flex:none;width:148px;aspect-ratio:9/16;border-radius:14px;border:1px solid var(--line);overflow:hidden;background:linear-gradient(160deg,var(--surface-2),var(--bg-2));text-decoration:none;color:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;transition:transform .18s ease,border-color .18s ease}
-  a.vid:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
-  .vid .play{position:absolute;top:calc(50% - 16px);left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 6px 18px -6px rgba(0,0,0,.5)}
-  .vid.soon .play{background:var(--surface);border:1px solid var(--line)}
-  .vid .play svg{width:18px;height:18px;color:var(--accent-ink);margin-left:2px}
-  .vid.soon .play svg{color:var(--faint)}
-  .vid .cap{position:relative;padding:11px 12px;background:linear-gradient(to top,color-mix(in srgb,var(--surface) 94%,transparent),transparent)}
-  .vid .cap .pf{display:block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  .vid .cap .st{display:block;font-size:12px;color:var(--faint);margin-top:2px}
+  .vid{flex:none;width:152px;aspect-ratio:9/16;border-radius:14px;border:1px solid var(--line);background:#000;object-fit:cover;display:block;transition:border-color .18s ease}
+  .vid:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
 
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
@@ -378,7 +371,7 @@
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">On-camera talent</span></div></div>
               <p class="desc">Content creator en on-camera talent voor de socials van Bol. In vier maanden meegewerkt aan zo’n 20 TikTok-video’s — scripts en concepten van Bol tot leven gebracht voor de camera, met die natuurlijke-maar-strakke vibe die past bij het snelle, herkenbare TikTok-ritme.</p>
               <div class="metrics"><div class="metric"><div class="m-num">~20</div><div class="m-lbl">Video’s</div></div><div class="metric"><div class="m-num">4 mnd</div><div class="m-lbl">Periode</div></div></div>
-              <div class="vid-row"><a class="vid" href="https://www.tiktok.com/@bol/video/7614062219952786720" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a><a class="vid" href="https://www.tiktok.com/@bol/video/7597507580113734915" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a><a class="vid" href="https://www.tiktok.com/@bol/video/7591588560101330198" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a><a class="vid" href="https://www.tiktok.com/@bol/video/7586606342773706007" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a></div>
+              <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/bol/1.jpg"><source src="videos/bol/1.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/bol/2.jpg"><source src="videos/bol/2.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/bol/3.jpg"><source src="videos/bol/3.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/bol/4.jpg"><source src="videos/bol/4.mp4" type="video/mp4"></video></div>
             </div>
           </div>
         </article>
@@ -391,7 +384,7 @@
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok & Instagram</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">Filmen & editen</span></div></div>
               <p class="desc">Content ter promotie van de Netflix-docu <em>Into the Manosphere</em>, ingezet op TikTok en Instagram.</p>
               <div class="metrics"><div class="metric"><div class="m-num">58.015</div><div class="m-lbl">Views</div></div><div class="metric"><div class="m-num">2.896</div><div class="m-lbl">Likes</div></div><div class="metric"><div class="m-num">352</div><div class="m-lbl">Shares</div></div></div>
-              <div class="vid-row"><a class="vid" href="https://www.instagram.com/reel/DWE6KiysEuv/" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">Instagram</span><span class="st">Bekijk →</span></span></a></div>
+              <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/netflix/1.jpg"><source src="videos/netflix/1.mp4" type="video/mp4"></video></div>
             </div>
           </div>
         </article>
@@ -404,7 +397,7 @@
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok & Instagram</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">On-camera talent</span></div></div>
               <p class="desc">Twee video’s met Fernandes waarin ik samen met een andere creator van cultuur wisselde. Van concept naar een humoristisch format gebracht — met resultaat.</p>
               <div class="metrics"><div class="metric"><div class="m-num">45.045</div><div class="m-lbl">Views</div></div><div class="metric"><div class="m-num">6.260</div><div class="m-lbl">Likes</div></div><div class="metric"><div class="m-num">1.153</div><div class="m-lbl">Shares</div></div></div>
-              <div class="vid-row"><div class="vid soon"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">video volgt</span></span></div><div class="vid soon"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">video volgt</span></span></div></div>
+              <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/fernandes/1.jpg"><source src="videos/fernandes/1.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/fernandes/2.jpg"><source src="videos/fernandes/2.mp4" type="video/mp4"></video></div>
             </div>
           </div>
         </article>
@@ -417,7 +410,7 @@
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">Concept, filmen & editen</span></div></div>
               <p class="desc">Meerdere video’s ter promotie van filmreleases, waaronder <em>Insidious: The Frighteners</em>, <em>Evil Dead Burn</em> en <em>Michael</em>.</p>
               
-              <div class="vid-row"><a class="vid" href="https://www.tiktok.com/@armaanbanaan/video/7628284593296264480" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a><a class="vid" href="https://www.tiktok.com/@armaanbanaan/video/7660876819062721825" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a><a class="vid" href="https://www.tiktok.com/@armaanbanaan/video/7677224876914068769" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a></div>
+              <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/universal/1.jpg"><source src="videos/universal/1.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/universal/2.jpg"><source src="videos/universal/2.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/universal/3.jpg"><source src="videos/universal/3.mp4" type="video/mp4"></video></div>
             </div>
           </div>
         </article>
@@ -430,7 +423,7 @@
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">Concept, filmen & editen</span></div></div>
               <p class="desc">Twee video’s met als doel het krantenabonnement <em>/Topics</em> tot leven te brengen voor studenten.</p>
               <div class="metrics"><div class="metric"><div class="m-num">1.952</div><div class="m-lbl">Likes</div></div></div>
-              <div class="vid-row"><a class="vid" href="https://www.tiktok.com/@armaanbanaan/video/7620534533246438688" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a><a class="vid" href="https://www.tiktok.com/@armaanbanaan/video/7630935927359065377" target="_blank" rel="noopener"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="cap"><span class="pf">TikTok</span><span class="st">Bekijk →</span></span></a></div>
+              <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/dpg-topics/1.jpg"><source src="videos/dpg-topics/1.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/dpg-topics/2.jpg"><source src="videos/dpg-topics/2.mp4" type="video/mp4"></video></div>
             </div>
           </div>
         </article>

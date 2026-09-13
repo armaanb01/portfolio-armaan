@@ -13,6 +13,7 @@
     --accent:#D99400;
     --accent-ink:#1A1712;
     --accent-soft:rgba(217,148,0,.14);
+    --logo:#4A4234;
     --shadow:0 1px 2px rgba(26,23,18,.05),0 12px 34px -18px rgba(26,23,18,.30);
     --grain:.03;
   }
@@ -29,6 +30,7 @@
       --accent:#FFC531;
       --accent-ink:#1A1508;
       --accent-soft:rgba(255,197,49,.12);
+      --logo:#CBBF9F;
       --shadow:0 1px 2px rgba(0,0,0,.4),0 20px 44px -22px rgba(0,0,0,.7);
       --grain:.05;
     }
@@ -46,6 +48,7 @@
     --accent:#FFC531;
     --accent-ink:#1A1508;
     --accent-soft:rgba(255,197,49,.12);
+    --logo:#CBBF9F;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 20px 44px -22px rgba(0,0,0,.7);
     --grain:.05;
   }
@@ -176,6 +179,28 @@
   .foot-links a{color:var(--muted);text-decoration:none;font-size:13.5px}
   .foot-links a:hover{color:var(--accent)}
 
+  /* logo marquee */
+  .marquee-band{padding:56px 0 12px;border-top:1px solid var(--line)}
+  .marquee-head{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+  .marquee-head .eyebrow{white-space:nowrap}
+  .marquee-head .rule{height:1px;background:var(--line);flex:1}
+  .marquee{position:relative;overflow:hidden;
+    -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .marquee-track{display:flex;align-items:center;width:max-content;animation:marq 52s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .logo-group{display:flex;align-items:center;gap:58px;padding-right:58px;flex:none}
+  .logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:27px;letter-spacing:-.015em;
+    color:var(--logo);white-space:nowrap;line-height:1;transition:color .2s ease;cursor:default}
+  .logo:hover{color:var(--accent)}
+  @media (prefers-reduced-motion:reduce){
+    .marquee{-webkit-mask:none;mask:none}
+    .marquee-track{animation:none;width:auto}
+    .marquee-track .dup{display:none}
+    .logo-group{flex-wrap:wrap;justify-content:center;gap:16px 34px;padding-right:0}
+  }
+
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){
@@ -193,6 +218,8 @@
     .fmt-list{grid-template-columns:1fr}
     .plat-grid{grid-template-columns:repeat(2,1fr)}
     .nav-links{display:none}
+    .logo{font-size:21px}
+    .logo-group{gap:40px;padding-right:40px}
   }
   @media (max-width:520px){
     .stats-in{grid-template-columns:1fr}
@@ -210,6 +237,7 @@
     <a href="#top" class="brand">armaan<span class="dot"></span>bos</a>
     <nav class="nav-right">
       <div class="nav-links">
+        <a href="#merken">Merken</a>
         <a href="#werk">Werk</a>
         <a href="#formats">Formats</a>
         <a href="#platforms">Platforms</a>
@@ -257,6 +285,55 @@
         <div class="stat"><div class="num">9,1M</div><div class="lbl">TikTok likes</div></div>
         <div class="stat tbd"><div class="num">— K</div><div class="lbl">Instagram · invullen</div></div>
         <div class="stat tbd"><div class="num">8,6%</div><div class="lbl">Gem. engagement</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="marquee-band" id="merken" aria-label="Merken waarmee Armaan heeft samengewerkt">
+    <div class="wrap marquee-head">
+      <span class="eyebrow">Gewerkt met</span>
+      <span class="rule"></span>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        <div class="logo-group">
+          <span class="logo">DPG Media</span>
+          <span class="logo">Bol.com</span>
+          <span class="logo">Best Social Summit</span>
+          <span class="logo">Fernandes</span>
+          <span class="logo">Tilburg EnNu</span>
+          <span class="logo">1Almere</span>
+          <span class="logo">Salsa Shop</span>
+          <span class="logo">Netflix</span>
+          <span class="logo">GlobalPeople</span>
+          <span class="logo">Suhoor Stories</span>
+          <span class="logo">Universal Studios</span>
+          <span class="logo">Schiphol Airport</span>
+          <span class="logo">Paramount Studios</span>
+          <span class="logo">Sony Pictures NL</span>
+          <span class="logo">Emma Sleep</span>
+          <span class="logo">NS</span>
+          <span class="logo">Oxfam Novib</span>
+        </div>
+        <div class="logo-group dup" aria-hidden="true">
+          <span class="logo">DPG Media</span>
+          <span class="logo">Bol.com</span>
+          <span class="logo">Best Social Summit</span>
+          <span class="logo">Fernandes</span>
+          <span class="logo">Tilburg EnNu</span>
+          <span class="logo">1Almere</span>
+          <span class="logo">Salsa Shop</span>
+          <span class="logo">Netflix</span>
+          <span class="logo">GlobalPeople</span>
+          <span class="logo">Suhoor Stories</span>
+          <span class="logo">Universal Studios</span>
+          <span class="logo">Schiphol Airport</span>
+          <span class="logo">Paramount Studios</span>
+          <span class="logo">Sony Pictures NL</span>
+          <span class="logo">Emma Sleep</span>
+          <span class="logo">NS</span>
+          <span class="logo">Oxfam Novib</span>
+        </div>
       </div>
     </div>
   </section>

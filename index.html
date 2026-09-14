@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Armaan Bos — Creator</title>
+<title>Armaan Banaan — Creator</title>
 <style>
   :root{
     /* light (warm paper) — default / system-light */
@@ -158,7 +158,7 @@
   .fmt-item p{margin:0;color:var(--muted);font-size:14.5px}
 
   /* platforms */
-  .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .plat{display:flex;flex-direction:column;gap:14px;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--surface);text-decoration:none;transition:transform .18s ease,border-color .18s ease}
   .plat:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 55%,var(--line))}
   .plat .p-top{display:flex;align-items:center;justify-content:space-between}
@@ -202,9 +202,9 @@
   }
 
   /* projects */
-  .projects{margin-top:8px}
-  .project{border-top:1px solid var(--line);padding:46px 0}
-  .project:first-child{border-top:none;padding-top:6px}
+  .projects{margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .project{border:1px solid var(--line);border-radius:18px;padding:30px 28px}
+  .project.feature{grid-column:1 / -1}
   .proj-top{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
   .proj-no{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,48px);line-height:.85;color:var(--faint);font-variant-numeric:tabular-nums}
   .proj-main{min-width:0}
@@ -234,6 +234,7 @@
     .stat:nth-child(3){border-left:none}
     .stat:nth-child(n+3){border-top:1px solid var(--line)}
     .collab-grid{grid-template-columns:1fr}
+    .projects{grid-template-columns:1fr}
     .fmt-list{grid-template-columns:1fr}
     .plat-grid{grid-template-columns:repeat(2,1fr)}
     .nav-links{display:none}
@@ -254,14 +255,13 @@
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a href="#top" class="brand">armaan<span class="dot"></span>bos</a>
+    <a href="#top" class="brand">armaan<span class="dot"></span>banaan</a>
     <nav class="nav-right">
       <div class="nav-links">
         <a href="#merken">Merken</a>
         <a href="#werk">Werk</a>
         <a href="#formats">Formats</a>
         <a href="#platforms">Platforms</a>
-        <a href="#boeken">Boeken</a>
       </div>
       <button class="icon-btn" id="theme" aria-label="Wissel licht/donker">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
@@ -276,8 +276,8 @@
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">Content creator · Nederland</p>
-        <h1>Merken die blijven <span class="peel">hangen.</span></h1>
-        <p class="lede">Ik ben Armaan — content creator op TikTok, Instagram en Snapchat. Ik vertaal merken naar content die kijkers écht afkijken: eerlijk, snel en met een gezicht dat mensen vertrouwen.</p>
+        <h1>Content die kijkers <span class="peel">écht</span> interesseert.</h1>
+        <p class="lede">Ik ben Armaan, content creator op TikTok en Instagram. Ik vertaal concepten van bedrijven naar content wat het publiek écht interesseert: eerlijk, snel en met een gezicht dat mensen vertrouwen.</p>
         <div class="hero-cta">
           <a href="#werk" class="btn btn-primary">Bekijk samenwerkingen</a>
           <a href="#boeken" class="btn btn-ghost">Samenwerken →</a>
@@ -298,10 +298,10 @@
 
     <div class="stats wrap" style="max-width:1120px">
       <div class="stats-in">
-        <div class="stat"><div class="num">64,6K</div><div class="lbl">TikTok volgers</div></div>
-        <div class="stat"><div class="num">9,1M</div><div class="lbl">TikTok likes</div></div>
-        <div class="stat tbd"><div class="num">— K</div><div class="lbl">Instagram · invullen</div></div>
-        <div class="stat tbd"><div class="num">8,6%</div><div class="lbl">Gem. engagement</div></div>
+        <div class="stat"><div class="num">64,9K</div><div class="lbl">TikTok volgers</div></div>
+        <div class="stat"><div class="num">9,2M</div><div class="lbl">TikTok likes</div></div>
+        <div class="stat"><div class="num">19,4K</div><div class="lbl">Instagram volgers</div></div>
+        <div class="stat"><div class="num">60M+</div><div class="lbl">Totale views</div></div>
       </div>
     </div>
   </section>
@@ -358,19 +358,18 @@
           <p class="eyebrow">Uitgelicht werk</p>
           <h2>Vijf topprojecten</h2>
         </div>
-        <p>Een greep uit recente merksamenwerkingen. De video’s verschijnen hier zodra ze klaarstaan.</p>
       </div>
 
       <div class="projects">
-        <article class="project reveal">
+        <article class="project feature reveal">
           <div class="proj-top">
             <div class="proj-no">01</div>
             <div class="proj-main">
-              <span class="brandline">Bol.com</span>
+              <span class="brandline">Bol</span>
               <h3>On-camera talent voor Bol</h3>
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">On-camera talent</span></div></div>
               <p class="desc">Content creator en on-camera talent voor de socials van Bol. In vier maanden meegewerkt aan zo’n 20 TikTok-video’s — scripts en concepten van Bol tot leven gebracht voor de camera, met die natuurlijke-maar-strakke vibe die past bij het snelle, herkenbare TikTok-ritme.</p>
-              <div class="metrics"><div class="metric"><div class="m-num">~20</div><div class="m-lbl">Video’s</div></div><div class="metric"><div class="m-num">4 mnd</div><div class="m-lbl">Periode</div></div></div>
+              <div class="metrics"><div class="metric"><div class="m-num">~20</div><div class="m-lbl">Video’s</div></div><div class="metric"><div class="m-num">10M+</div><div class="m-lbl">Views</div></div></div>
               <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/bol/1.jpg"><source src="videos/bol/1.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/bol/2.jpg"><source src="videos/bol/2.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/bol/3.jpg"><source src="videos/bol/3.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/bol/4.jpg"><source src="videos/bol/4.mp4" type="video/mp4"></video></div>
             </div>
           </div>
@@ -380,10 +379,10 @@
             <div class="proj-no">02</div>
             <div class="proj-main">
               <span class="brandline">Netflix</span>
-              <h3>Into the Manosphere — docupromotie</h3>
+              <h3>Netflix: ‘Inside the Manosphere’ promotie</h3>
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok & Instagram</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">Filmen & editen</span></div></div>
-              <p class="desc">Content ter promotie van de Netflix-docu <em>Into the Manosphere</em>, ingezet op TikTok en Instagram.</p>
-              <div class="metrics"><div class="metric"><div class="m-num">58.015</div><div class="m-lbl">Views</div></div><div class="metric"><div class="m-num">2.896</div><div class="m-lbl">Likes</div></div><div class="metric"><div class="m-num">352</div><div class="m-lbl">Shares</div></div></div>
+              <p class="desc">Een boeiende en pakkende video waarin ik mijn mening geef over de docu ‘Inside the Manosphere’ op Netflix, ter promotie van deze documentaire.</p>
+              <div class="metrics"><div class="metric"><div class="m-num">58K</div><div class="m-lbl">Views</div></div><div class="metric"><div class="m-num">3K</div><div class="m-lbl">Likes</div></div><div class="metric"><div class="m-num">352</div><div class="m-lbl">Shares</div></div></div>
               <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/netflix/1.jpg"><source src="videos/netflix/1.mp4" type="video/mp4"></video></div>
             </div>
           </div>
@@ -396,7 +395,7 @@
               <h3>Cultuurswitch met Fernandes</h3>
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok & Instagram</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">On-camera talent</span></div></div>
               <p class="desc">Twee video’s met Fernandes waarin ik samen met een andere creator van cultuur wisselde. Van concept naar een humoristisch format gebracht — met resultaat.</p>
-              <div class="metrics"><div class="metric"><div class="m-num">45.045</div><div class="m-lbl">Views</div></div><div class="metric"><div class="m-num">6.260</div><div class="m-lbl">Likes</div></div><div class="metric"><div class="m-num">1.153</div><div class="m-lbl">Shares</div></div></div>
+              <div class="metrics"><div class="metric"><div class="m-num">45K</div><div class="m-lbl">Views</div></div><div class="metric"><div class="m-num">7K</div><div class="m-lbl">Likes</div></div><div class="metric"><div class="m-num">1,2K</div><div class="m-lbl">Shares</div></div></div>
               <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/fernandes/1.jpg"><source src="videos/fernandes/1.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/fernandes/2.jpg"><source src="videos/fernandes/2.mp4" type="video/mp4"></video></div>
             </div>
           </div>
@@ -408,8 +407,8 @@
               <span class="brandline">Universal</span>
               <h3>Filmreleases voor Universal</h3>
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">Concept, filmen & editen</span></div></div>
-              <p class="desc">Meerdere video’s ter promotie van filmreleases, waaronder <em>Insidious: The Frighteners</em>, <em>Evil Dead Burn</em> en <em>Michael</em>.</p>
-              
+              <p class="desc">Meerdere pakkende video’s ter promotie van verschillende filmreleases in de bioscoop waaronder <em>Insidious: Out of the further</em>, <em>Evil Dead Burn</em> en <em>Michael</em>.</p>
+              <div class="metrics"><div class="metric"><div class="m-num">350K</div><div class="m-lbl">Views</div></div><div class="metric"><div class="m-num">21K</div><div class="m-lbl">Likes</div></div><div class="metric"><div class="m-num">8K</div><div class="m-lbl">Shares</div></div></div>
               <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/universal/1.jpg"><source src="videos/universal/1.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/universal/2.jpg"><source src="videos/universal/2.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/universal/3.jpg"><source src="videos/universal/3.mp4" type="video/mp4"></video></div>
             </div>
           </div>
@@ -422,7 +421,7 @@
               <h3>/Topics tot leven voor studenten</h3>
               <div class="meta"><div class="meta-i"><span class="k">Platform</span><span class="v">TikTok</span></div><div class="meta-i"><span class="k">Rol</span><span class="v">Concept, filmen & editen</span></div></div>
               <p class="desc">Twee video’s met als doel het krantenabonnement <em>/Topics</em> tot leven te brengen voor studenten.</p>
-              <div class="metrics"><div class="metric"><div class="m-num">1.952</div><div class="m-lbl">Likes</div></div></div>
+              <div class="metrics"><div class="metric"><div class="m-num">26K</div><div class="m-lbl">Views</div></div><div class="metric"><div class="m-num">2K</div><div class="m-lbl">Likes</div></div><div class="metric"><div class="m-num">250</div><div class="m-lbl">Shares</div></div></div>
               <div class="vid-row"><video class="vid" controls playsinline preload="metadata" poster="videos/dpg-topics/1.jpg"><source src="videos/dpg-topics/1.mp4" type="video/mp4"></video><video class="vid" controls playsinline preload="metadata" poster="videos/dpg-topics/2.jpg"><source src="videos/dpg-topics/2.mp4" type="video/mp4"></video></div>
             </div>
           </div>
@@ -441,12 +440,12 @@
         <p>Van losse video tot een volledige campagne — altijd afgestemd op het platform en het publiek.</p>
       </div>
       <div class="fmt-list">
-        <div class="fmt-item reveal"><span class="fi-k">01</span><h3>TikTok-video's</h3><p>Native content in mijn eigen toon, gemaakt om te scrollen én te blijven kijken.</p></div>
-        <div class="fmt-item reveal"><span class="fi-k">02</span><h3>Instagram Reels</h3><p>Korte video en stories die het merk in mijn dagelijkse feed laten landen.</p></div>
-        <div class="fmt-item reveal"><span class="fi-k">03</span><h3>Livestreams</h3><p>Live momenten rond een launch of event, direct contact met de community.</p></div>
-        <div class="fmt-item reveal"><span class="fi-k">04</span><h3>UGC &amp; ads</h3><p>Content voor de kanalen van het merk zelf — inzetbaar als betaalde advertentie.</p></div>
-        <div class="fmt-item reveal"><span class="fi-k">05</span><h3>Snapchat</h3><p>Directe, ongepolijste content voor een jonger, trouw publiek.</p></div>
-        <div class="fmt-item reveal"><span class="fi-k">06</span><h3>Events &amp; activaties</h3><p>Aanwezig op locatie, content vanaf de vloer, van festival tot premiere.</p></div>
+        <div class="fmt-item reveal"><span class="fi-k">01</span><h3>TikTok video’s</h3><p>Content in mijn eigen toon waarin de kijker vertrouwd de video blijft afkijken.</p></div>
+        <div class="fmt-item reveal"><span class="fi-k">02</span><h3>Instagram (Reels)</h3><p>Video’s of stories die de doelgroep weet te bereiken op een luchtige manier.</p></div>
+        <div class="fmt-item reveal"><span class="fi-k">03</span><h3>Events &amp; activaties</h3><p>Ter plekke op een event of activatie content schieten om een hype rondom deze plek te kunnen opwekken.</p></div>
+        <div class="fmt-item reveal"><span class="fi-k">04</span><h3>UGC &amp; ads</h3><p>Content voor de kanalen van het merk zelf, inzetbaar als betaalde advertentie.</p></div>
+        <div class="fmt-item reveal"><span class="fi-k">05</span><h3>Snapchat</h3><p>Snelle, directe ongepolijste content voor een jonger publiek.</p></div>
+        <div class="fmt-item reveal"><span class="fi-k">06</span><h3>Livestreams</h3><p>Een hype genereren en een directe verbinding met de community om kennis te laten maken met een merk.</p></div>
       </div>
     </div>
   </section>
@@ -482,13 +481,6 @@
           </div>
           <div><div class="p-name">Snapchat</div><div class="p-handle">Toevoegen</div></div>
         </a>
-        <a class="plat reveal" href="https://www.linkedin.com/in/armaanbos" target="_blank" rel="noopener">
-          <div class="p-top">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-.9 1.8-1.9 3.6-1.9 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21H9z"/></svg>
-            <span class="arrow">↗</span>
-          </div>
-          <div><div class="p-name">LinkedIn</div><div class="p-handle">Zakelijk</div></div>
-        </a>
       </div>
     </div>
   </section>
@@ -500,8 +492,7 @@
         <h2>Een campagne in gedachten?</h2>
         <p>Boekingen en samenwerkingen lopen via mijn management bij Vane. Laat weten wat je van plan bent, dan denken we mee over het format.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="mailto:niels@wearevane.nl?subject=Samenwerking%20met%20Armaan">niels@wearevane.nl</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/armaanbos" target="_blank" rel="noopener">LinkedIn →</a>
+          <a class="btn btn-primary" href="mailto:anke@wearevane.nl?subject=Samenwerking%20met%20Armaan">anke@wearevane.nl</a>
         </div>
       </div>
     </div>
@@ -510,14 +501,13 @@
 
 <footer>
   <div class="wrap foot-in">
-    <div class="brand" style="font-size:16px">armaan<span class="dot"></span>bos</div>
+    <div class="brand" style="font-size:16px">armaan<span class="dot"></span>banaan</div>
     <div class="foot-links">
       <a href="https://www.tiktok.com/@armaanbanaan" target="_blank" rel="noopener">TikTok</a>
       <a href="https://www.instagram.com/armaanbanaan" target="_blank" rel="noopener">Instagram</a>
       <a href="https://snapchat.com/t/yFIgUWwQ" target="_blank" rel="noopener">Snapchat</a>
-      <a href="https://www.linkedin.com/in/armaanbos" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <div class="muted">© <span id="yr"></span> Armaan Bos · Content creator</div>
+    <div class="muted">© <span id="yr"></span> Armaan Banaan · Content creator</div>
   </div>
 </footer>
 

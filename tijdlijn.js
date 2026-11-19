@@ -82,6 +82,7 @@ var SAMENWERKINGEN = [
     b.addEventListener("mouseenter",function(){ var p=v.play(); if(p&&p.catch){p.catch(function(){});} });
     b.addEventListener("mouseleave",function(){ v.pause(); });
     b.addEventListener("click",function(){ open(s); });
+    b._s=s;
     track.appendChild(b);
   });
 
@@ -157,7 +158,7 @@ var SAMENWERKINGEN = [
 
   /* vergroot venster */
   var modal=document.getElementById("tl-modal"), mv=document.getElementById("m-video");
-  function open(s){
+  function open(s,start){
     document.getElementById("m-title").textContent=s.titel;
     document.getElementById("m-vraag").textContent=s.vraag;
     document.getElementById("m-gemaakt").textContent=s.gemaakt;
@@ -169,12 +170,32 @@ var SAMENWERKINGEN = [
     var mw=document.getElementById("m-more-wrap"), mm=document.getElementById("m-more");
     mw.hidden=alle.length<2;
     mm.innerHTML=alle.map(function(a,i){return '<button type="button" class="'+(i===0?'on':'')+'" aria-label="Video '+(i+1)+'"><img src="'+a.poster+'" alt=""></button>';}).join("");
+    if(start){ var sb=mm.querySelectorAll("button")[start]; if(sb){ mm.querySelectorAll("button").forEach(function(x){x.classList.remove("on");}); sb.classList.add("on"); mv.poster=alle[start].poster; mv.src=alle[start].video; } }
     mm.querySelectorAll("button").forEach(function(btn,i){ btn.addEventListener("click",function(){ mm.querySelectorAll("button").forEach(function(x){x.classList.remove("on");}); btn.classList.add("on"); mv.poster=alle[i].poster; mv.src=alle[i].video; var q=mv.play(); if(q&&q.catch){q.catch(function(){});} }); });
     modal.showModal(); var p=mv.play(); if(p&&p.catch){p.catch(function(){});}
   }
   modal.addEventListener("close",function(){ mv.pause(); });
   modal.addEventListener("click",function(e){ if(e.target===modal){ modal.close(); } });
   document.getElementById("m-x").addEventListener("click",function(){ modal.close(); });
+
+  /* vanuit de profieltelefoon: soepel naar een samenwerking scrollen en de video openen */
+  window.tlGaNaar=function(pad){
+    var doel=null, idx=0;
+    track.querySelectorAll(".tl-item").forEach(function(el){ var s=el._s; if(!s||doel){return;} var lijstje=[s.video].concat((s.meer||[]).map(function(m){return "videos/"+m+".mp4";})); var k=lijstje.indexOf("videos/"+pad+".mp4"); if(k>-1){ doel=el; idx=k; } });
+    if(!doel){ document.getElementById("werk").scrollIntoView({behavior:"smooth"}); return; }
+    var rm=matchMedia("(prefers-reduced-motion:reduce)").matches, gedrag=rm?"auto":"smooth";
+    var sec=document.getElementById("werk");
+    var y; if(mobiel()){ var r=doel.getBoundingClientRect(); y=scrollY+r.top-(innerHeight-r.height)/2; } else { y=scrollY+sec.getBoundingClientRect().top-70; }
+    window.scrollTo({top:Math.max(0,y),behavior:gedrag});
+    var wacht=rm?50:900;
+    setTimeout(function(){
+      if(!mobiel()){ scroll.scrollTo({left:Math.max(0,doel.offsetLeft-scroll.clientWidth/2),behavior:gedrag}); }
+      setTimeout(function(){
+        doel.classList.remove("tl-pulse"); void doel.offsetWidth; doel.classList.add("tl-pulse");
+        setTimeout(function(){ open(doel._s,idx); }, rm?0:750);
+      }, rm?0:(mobiel()?0:650));
+    }, wacht);
+  };
 
   layout();
   var t; addEventListener("resize",function(){ clearTimeout(t); t=setTimeout(layout,120); });

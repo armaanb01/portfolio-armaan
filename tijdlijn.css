@@ -125,3 +125,9 @@
 @media (prefers-reduced-motion:reduce){
   .tl-card,.tl-modal[open],.tl-hint::after,.tl-head .tap,.tl-next .tl-eyes,.tl-next:hover .tl-card,.tl-nav.next.nudge{transition:none;animation:none}
 }
+
+/* oplichten na klik vanuit de profieltelefoon */
+.tl-item.tl-pulse .tl-card{animation:tl-pulse .75s cubic-bezier(.3,1.5,.5,1) 1}
+.tl-item.tl-pulse .tl-dot{animation:tl-dotpulse .75s ease 1}
+@keyframes tl-pulse{0%{transform:rotate(var(--r,0deg)) scale(1)}45%{transform:rotate(0deg) scale(1.2);box-shadow:0 0 0 6px var(--accent),0 24px 46px -16px rgba(26,23,18,.45)}100%{transform:rotate(0deg) scale(1.14);box-shadow:0 0 0 0 var(--accent),0 24px 46px -16px rgba(26,23,18,.45)}}
+@keyframes tl-dotpulse{50%{transform:scale(1.8)}}

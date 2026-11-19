@@ -24,7 +24,14 @@
 
   .tl-head{padding:64px 0 6px}
   .tl-head h2{font-size:clamp(30px,4.4vw,46px);margin-top:8px}
-  .tl-head .sub{color:var(--muted);max-width:52ch;margin:12px 0 0}
+  .tl-head h2 .peel{color:var(--accent)}
+  .tl-head .sub{display:flex;align-items:flex-end;gap:10px;color:var(--muted);font-size:18px;margin:14px 0 0;flex-wrap:wrap}
+  .tl-head .sub b{color:var(--ink);font-weight:600}
+  .tl-head .tap{display:inline-block;animation:tap 1.8s ease-in-out infinite;transform-origin:50% 80%}
+  .tl-head .sub-arrow{width:46px;height:46px;color:var(--accent);flex:none;margin-bottom:-26px}
+  .tl-head .sub-arrow path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .tl-head .sub-arrow .dl{stroke-dasharray:5 6}
+  @keyframes tap{0%,60%,100%{transform:translateY(0) scale(1)}70%{transform:translateY(-4px) scale(1.05)}80%{transform:translateY(2px) scale(.95)}}
   .tl-scroll{overflow-x:auto;overflow-y:hidden;padding:4px 0 26px;scrollbar-width:thin;-webkit-mask:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
   .tl-track{position:relative;height:600px;margin:0 auto}
   .tl-line{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;color:var(--accent)}
@@ -35,11 +42,19 @@
   .tl-card{position:relative;width:132px;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#000;border:5px solid var(--surface);box-shadow:var(--shadow);transform:rotate(var(--r,0deg));transition:transform .3s cubic-bezier(.2,.8,.3,1.35),box-shadow .3s ease}
   .tl-item:hover .tl-card,.tl-item:focus-visible .tl-card{transform:rotate(0deg) scale(1.14);box-shadow:0 24px 46px -16px rgba(26,23,18,.45);z-index:2}
   .tl-card video{width:100%;height:100%;object-fit:cover;display:block}
-  .tl-logo{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);background:#fcfcfb;border-radius:8px;padding:4px 8px;display:flex;box-shadow:0 4px 10px -4px rgba(0,0,0,.45)}
-  .tl-logo img{height:13px;width:auto;display:block}
-  .tl-play{position:absolute;top:50%;left:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;display:grid;place-items:center;opacity:0;transition:opacity .2s}
-  .tl-play svg{width:16px;height:16px;margin-left:2px}
-  .tl-item:hover .tl-play,.tl-item:focus-visible .tl-play{opacity:1}
+  .tl-logo{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);background:#fcfcfb;border-radius:11px;padding:7px 11px;display:flex;align-items:center;justify-content:center;max-width:calc(100% - 14px);box-shadow:0 6px 14px -5px rgba(0,0,0,.55)}
+  .tl-logo img{height:20px;width:auto;max-width:96px;object-fit:contain;display:block}
+  .tl-logo img[data-logo="Universal"]{height:30px}
+  .tl-logo img[data-logo="Bol"]{height:22px}
+  .tl-hint{position:absolute;top:8px;right:8px;height:28px;min-width:28px;padding:0 8px;border-radius:999px;background:var(--accent);color:#1A1508;display:flex;align-items:center;justify-content:center;gap:0;font-family:"DM Mono",monospace;font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 4px 12px -3px rgba(0,0,0,.5);transition:gap .25s}
+  .tl-hint svg{width:13px;height:13px;flex:none}
+  .tl-hint .t{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .25s ease}
+  .tl-item:hover .tl-hint,.tl-item:focus-visible .tl-hint{gap:5px}
+  .tl-item:hover .tl-hint .t,.tl-item:focus-visible .tl-hint .t{max-width:70px}
+  .tl-hint::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--accent);animation:ping 2.6s ease-out infinite;animation-delay:var(--d,0s);pointer-events:none}
+  .tl-item:hover .tl-hint::after{animation:none;opacity:0}
+  @keyframes ping{0%{transform:scale(1);opacity:.9}60%,100%{transform:scale(1.9);opacity:0}}
+  @media (prefers-reduced-motion:reduce){.tl-hint::after,.tl-head .tap{animation:none}}
   .tl-dot{flex:none;width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg),0 0 0 6.5px var(--accent);transition:transform .2s}
   .tl-item:hover .tl-dot{transform:scale(1.3)}
   .tl-date{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
@@ -104,8 +119,8 @@
 <main>
   <section class="wrap tl-head">
     <p class="eyebrow">Tijdlijn</p>
-    <h2>Recente samenwerkingen</h2>
-    <p class="sub">Klik op een video om te zien wat het merk vroeg, wat ik maakte en wat het opleverde.</p>
+    <h2>Recente <span class="peel">samenwerkingen</span></h2>
+    <p class="sub"><span>Van <b>Bol</b> tot <b>Paramount</b>: tik op een video voor het verhaal erachter <span class="tap">👆</span></span><svg class="sub-arrow" viewBox="0 0 46 46" aria-hidden="true"><path class="dl" d="M4 6C22 4 34 14 33 34"/><path d="M27 29L33 37L39 29"/></svg></p>
   </section>
 
   <div class="tl-scroll" id="tl-scroll">
@@ -208,7 +223,7 @@
       var b=document.createElement("button");
       b.className="tl-item"; b.type="button"; b.setAttribute("aria-label",s.merk+": "+s.titel);
       var d=s.label||datum(s.wanneer);
-      b.innerHTML='<span class="tl-card" style="--r:'+hoeken[i%hoeken.length]+'deg"><video muted loop playsinline preload="none" poster="'+s.poster+'"><source src="'+s.video+'" type="video/mp4"></video><span class="tl-play">'+play+'</span><span class="tl-logo"><img data-logo="'+s.logo+'" alt="'+s.merk+'"></span></span><span class="tl-dot"></span><span class="tl-date'+(d?'':' missing')+'">'+(d||'datum?')+'</span>';
+      b.innerHTML='<span class="tl-card" style="--r:'+hoeken[i%hoeken.length]+'deg"><video muted loop playsinline preload="none" poster="'+s.poster+'"><source src="'+s.video+'" type="video/mp4"></video><span class="tl-hint" style="--d:'+(i*0.35).toFixed(2)+'s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg><span class="t">Bekijk</span></span><span class="tl-logo"><img data-logo="'+s.logo+'" alt="'+s.merk+'"></span></span><span class="tl-dot"></span><span class="tl-date'+(d?'':' missing')+'">'+(d||'datum?')+'</span>';
       var v=b.querySelector("video");
       b.addEventListener("mouseenter",function(){ var p=v.play(); if(p&&p.catch){p.catch(function(){});} });
       b.addEventListener("mouseleave",function(){ v.pause(); });

@@ -761,7 +761,7 @@
   var gezien=false, gebouwd=false;
   function start(){ if(!gezien||!gebouwd){return;} pf.classList.add("go"); reels.forEach(function(r,i){ rol(r,0.6+i*0.2,1.1); }); start=function(){}; }
   klaar.then(function(){ bouw(); gebouwd=true; start(); });
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting){return;} gezien=true; if(gebouwd){ start(); } else { pf.classList.add("go"); } io.disconnect(); }); },{threshold:.3});
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting){return;} gezien=true; start(); io.disconnect(); }); },{threshold:.3});
   io.observe(pf);
 })();
 </script>

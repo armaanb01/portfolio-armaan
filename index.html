@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://armaanbanaan.nl/">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#FBF7EC">
+<meta name="theme-color" content="#FFFDF6">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="nl_NL">
 <meta property="og:site_name" content="armaanbanaan">
@@ -273,6 +273,47 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="tijdlijn.css">
+<style>
+  /* ===== Huisstijl A: Banaan-pop (licht + donker) ===== */
+  :root{--bg:#FFFDF6;--bg-2:#FFF6CC;--surface:#FFFFFF;--surface-2:#FFF9E0;--line:#ECE6D3;--ink:#111111;--muted:#55524A;--faint:#8D887A;--accent:#FFD60A;--accent-ink:#111111;--accent-soft:rgba(255,214,10,.22);--accent-text:#B58900;--doodle:#E5AE00;--logo:#333;--st-shadow:#111;--shadow:0 1px 2px rgba(0,0,0,.05),0 14px 34px -18px rgba(0,0,0,.28);--grain:.03}
+  :root[data-theme="light"]{color-scheme:light;--bg:#FFFDF6;--bg-2:#FFF6CC;--surface:#FFFFFF;--surface-2:#FFF9E0;--line:#ECE6D3;--ink:#111111;--muted:#55524A;--faint:#8D887A;--accent:#FFD60A;--accent-ink:#111111;--accent-soft:rgba(255,214,10,.22);--accent-text:#B58900;--doodle:#E5AE00;--logo:#333;--st-shadow:#111;--shadow:0 1px 2px rgba(0,0,0,.05),0 14px 34px -18px rgba(0,0,0,.28);--grain:.03}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0E0E0C;--bg-2:#161613;--surface:#1B1B18;--surface-2:#23231F;--line:#2E2D28;--ink:#F7F5EC;--muted:#A9A69A;--faint:#75736A;--accent:#FFD60A;--accent-ink:#111111;--accent-soft:rgba(255,214,10,.12);--accent-text:#FFD60A;--doodle:#FFD60A;--logo:#ddd;--st-shadow:#5c4d00;--shadow:0 1px 2px rgba(0,0,0,.5),0 22px 46px -22px rgba(0,0,0,.85);--grain:.05}}
+  :root[data-theme="dark"]{color-scheme:dark;--bg:#0E0E0C;--bg-2:#161613;--surface:#1B1B18;--surface-2:#23231F;--line:#2E2D28;--ink:#F7F5EC;--muted:#A9A69A;--faint:#75736A;--accent:#FFD60A;--accent-ink:#111111;--accent-soft:rgba(255,214,10,.12);--accent-text:#FFD60A;--doodle:#FFD60A;--logo:#ddd;--st-shadow:#5c4d00;--shadow:0 1px 2px rgba(0,0,0,.5),0 22px 46px -22px rgba(0,0,0,.85);--grain:.05}
+  .reel-doodle,.tl-line,.tl-head .sub-arrow{color:var(--doodle)}
+  .fi-k,.c-alt a,.tl-next .tl-date,.tl-stat b,.reel-views svg,.steps .st-n{color:var(--accent-text)}
+  .fmt-band{background:#111;color:#fff}.fmt-band .sec-head p,.fmt-band .eyebrow{color:#bbb}.fmt-list{background:#2a2a2a;border-color:#2a2a2a}.fmt-item{background:#161616}.fmt-item p{color:#aaa}.fmt-item .fi-k{color:var(--accent)}
+  /* hero-tekst */
+  .hero .eyebrow.proof{letter-spacing:.1em}
+  .hero .eyebrow.proof b{color:var(--ink);font-weight:500}
+  .hero .lede{font-size:21px;max-width:30ch;color:var(--ink);opacity:.82}
+  /* markeerstift over "écht" */
+  .hero h1 .peel,.tl-head h2 .peel{position:relative;isolation:isolate;display:inline-block;color:var(--ink);transition:color .25s ease .35s}
+  .hero h1 .peel::before,.tl-head h2 .peel::before{content:"";position:absolute;z-index:-1;left:-.1em;right:-.12em;top:.3em;bottom:-.02em;background:var(--accent);border-radius:.12em .45em .2em .4em/.4em .25em .5em .3em;transform:rotate(-4deg) skewX(-8deg) scaleX(0);transform-origin:0 100%;transition:transform .6s cubic-bezier(.65,0,.25,1)}
+  .hero h1 .peel.on,.tl-head h2 .peel.on{color:#111}
+  .hero h1 .peel.on::before,.tl-head h2 .peel.on::before{transform:rotate(-4deg) skewX(-8deg) scaleX(1)}
+  @media (prefers-reduced-motion:reduce){.hero h1 .peel::before,.tl-head h2 .peel::before{transition:none}}
+  /* cijfers */
+  .st-a{margin-top:56px;display:grid;grid-template-columns:auto 1fr;gap:28px 56px;align-items:center;border-top:2px solid var(--ink);padding-top:34px}
+  .st-hero{display:flex;align-items:center;gap:22px}
+  .st-big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(76px,11vw,148px);line-height:.85;letter-spacing:-.05em;color:#111;background:var(--accent);padding:6px 18px 10px;border-radius:14px;transform:rotate(-2deg);display:inline-block;box-shadow:6px 6px 0 var(--st-shadow)}
+  .st-cap{font-size:17px;color:var(--muted);max-width:18ch;line-height:1.35}
+  .st-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .st-row div{display:flex;flex-direction:column;gap:4px;border-left:2px solid var(--line);padding-left:16px}
+  .st-row b{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.03em;line-height:1}
+  .st-row span{font-size:14px;color:var(--muted)}
+  [data-count]{font-variant-numeric:tabular-nums}
+  @media (max-width:860px){.st-a{grid-template-columns:1fr}.st-hero{flex-wrap:wrap}}
+  @media (max-width:520px){.st-row{grid-template-columns:1fr}}
+  /* zo werkt het */
+  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .steps li{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 22px}
+  .steps li:not(:last-child)::after{content:"";position:absolute;top:38px;right:-14px;width:12px;border-top:2px dashed var(--doodle)}
+  .steps .st-n{font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.06em}
+  .steps h3{font-size:21px;margin:10px 0 8px}
+  .steps p{margin:0;color:var(--muted);font-size:15px}
+  @media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps li::after{display:none}}
+  @media (max-width:520px){.steps{grid-template-columns:1fr}}
+</style>
 
 <header class="nav">
   <div class="wrap nav-in">
@@ -296,30 +337,23 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow hero-in d1">Content creator · Nederland</p>
+        <p class="eyebrow hero-in d1 proof">Gewerkt met <b>Netflix</b>, <b>Bol</b> &amp; <b>Universal</b></p>
         <h1 class="hero-in d2">Content die kijkers <span class="peel">écht</span> interesseert.</h1>
-        <p class="lede hero-in d3">Ik ben Armaan, content creator op TikTok en Instagram. Ik vertaal concepten van bedrijven naar content die het publiek écht interesseert: eerlijk, snel en met een gezicht dat mensen vertrouwen.</p>
+        <p class="lede hero-in d3">TikToks en Reels die niet als reclame voelen, en wél worden afgekeken.</p>
         <div class="hero-cta hero-in d4">
           <a href="#werk" class="btn btn-primary">Bekijk samenwerkingen</a>
           <a href="#boeken" class="btn btn-ghost">Samenwerken →</a>
-        </div>
-        <div class="tagline-tags hero-in d5">
-          <span class="tag">TikTok</span>
-          <span class="tag">Reels</span>
-          <span class="tag">Livestreams</span>
-          <span class="tag">UGC</span>
-          <span class="tag">Brand takeovers</span>
         </div>
       </div>
         <div class="hero-reel"><svg class="reel-doodle" viewBox="0 0 460 590" aria-hidden="true"><defs><marker id="reel-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker><mask id="reel-m1" maskUnits="userSpaceOnUse" x="-30" y="-30" width="520" height="650"><path class="dm" d="M40 72C30 120 60 160 85 140C100 128 92 112 82 122C72 134 88 160 106 163" pathLength="1"/></mask><mask id="reel-m2" maskUnits="userSpaceOnUse" x="-30" y="-30" width="520" height="650"><path class="dm" d="M372 42C352 66 318 60 326 44C334 30 362 48 372 64C380 76 386 82 392 86" pathLength="1"/></mask><mask id="reel-m3" maskUnits="userSpaceOnUse" x="-30" y="-30" width="520" height="650"><path class="dm" d="M326 556C280 566 250 540 262 520C272 504 296 512 286 526C274 544 228 492 184 470" pathLength="1"/></mask></defs><path class="dl" d="M40 72C30 120 60 160 85 140C100 128 92 112 82 122C72 134 88 160 106 163" marker-end="url(#reel-ah)" mask="url(#reel-m1)"/><path class="dl" d="M372 42C352 66 318 60 326 44C334 30 362 48 372 64C380 76 386 82 392 86" marker-end="url(#reel-ah)" mask="url(#reel-m2)"/><path class="dl" d="M326 556C280 566 250 540 262 520C272 504 296 512 286 526C274 544 228 492 184 470" marker-end="url(#reel-ah)" mask="url(#reel-m3)"/></svg><span class="reel-logo l-bol"><img data-logo="Bol" alt="bol.com"></span><span class="reel-logo l-uni"><img data-logo="Universal" alt="Universal"></span><span class="reel-logo l-net"><img data-logo="Netflix" alt="Netflix"></span><div class="reel-card r1"><video class="vid" autoplay muted loop playsinline preload="auto" poster="videos/bol/2.jpg"><source src="videos/bol/2.mp4" type="video/mp4"></video><img class="reel-cap-logo" data-logo="Bol" alt="bol.com"><span class="reel-views"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>1,2M views</span></div><div class="reel-card r2"><video class="vid" autoplay muted loop playsinline preload="auto" poster="videos/netflix/1.jpg"><source src="videos/netflix/1.mp4" type="video/mp4"></video><img class="reel-cap-logo" data-logo="Netflix" alt="Netflix"><span class="reel-views"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>58K views</span></div><div class="reel-card r3"><video class="vid" autoplay muted loop playsinline preload="auto" poster="videos/universal/1.jpg"><source src="videos/universal/1.mp4" type="video/mp4"></video><img class="reel-cap-logo" data-logo="Universal" alt="Universal"><span class="reel-views"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>160K views</span></div></div>
 </div>
 
-    <div class="stats wrap" style="max-width:1120px">
-      <div class="stats-in">
-        <div class="stat"><div class="num">76K</div><div class="lbl">TikTok volgers</div></div>
-        <div class="stat"><div class="num">9,2M</div><div class="lbl">TikTok likes</div></div>
-        <div class="stat"><div class="num">24K</div><div class="lbl">Instagram volgers</div></div>
-        <div class="stat"><div class="num">60M+</div><div class="lbl">Totale views</div></div>
+    <div class="wrap st-a">
+      <div class="st-hero reveal"><span class="st-big"><span data-count="60" data-suf="M+">60M+</span></span><span class="st-cap">views op TikTok en Instagram, voor merken én mijn eigen kanalen</span></div>
+      <div class="st-row reveal">
+        <div><b data-count="76" data-suf="K">76K</b><span>volgers op TikTok</span></div>
+        <div><b data-count="24" data-suf="K">24K</b><span>volgers op Instagram</span></div>
+        <div><b data-count="9.2" data-dec="1" data-suf="M">9,2M</b><span>likes op TikTok</span></div>
       </div>
     </div>
   </section>
@@ -430,6 +464,24 @@
     </div>
   </section>
 
+  <section id="werkwijze">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="eyebrow">Zo werkt het</p>
+          <h2>Van briefing tot opname</h2>
+        </div>
+        <p>Geen gedoe: we stemmen alles samen af voordat de camera aangaat.</p>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><span class="st-n">01</span><h3>Briefing</h3><p>Je vertelt wat je wilt bereiken en hoe jullie het als bedrijf voor je zien.</p></li>
+        <li class="reveal"><span class="st-n">02</span><h3>Kennismaking</h3><p>We checken samen of we hetzelfde voor ogen hebben.</p></li>
+        <li class="reveal"><span class="st-n">03</span><h3>Concept</h3><p>Voor de meeste video’s kom ik met een idee. Anders komen we er samen uit.</p></li>
+        <li class="reveal"><span class="st-n">04</span><h3>Opname</h3><p>Een shootdag op locatie, ergens anders, of ik regel het zelf. Dat stemmen we samen af.</p></li>
+      </ol>
+    </div>
+  </section>
+
   <section id="boeken">
     <div class="wrap">
       <div class="contact reveal">
@@ -516,3 +568,18 @@
   })();
 </script>
 <script src="tijdlijn.js"></script>
+
+<script>
+(function(){
+  var rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  /* markeerstift */
+  var hp=document.querySelector(".hero h1 .peel"); if(hp){ setTimeout(function(){hp.classList.add("on");}, rm?0:900); }
+  var tp=document.querySelector(".tl-head h2 .peel");
+  /* oplopende cijfers */
+  function fmt(v,dec,suf){ return (dec?v.toFixed(dec).replace(".",","):Math.round(v))+(suf||""); }
+  function run(el){ var to=parseFloat(el.dataset.count), dec=parseInt(el.dataset.dec||"0",10), suf=el.dataset.suf||""; if(rm){el.textContent=fmt(to,dec,suf);return;} var t0=null,d=1400; function f(t){ if(!t0){t0=t;} var p=Math.min(1,(t-t0)/d); p=1-Math.pow(1-p,3); el.textContent=fmt(to*p,dec,suf); if(p<1){requestAnimationFrame(f);} } requestAnimationFrame(f); }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting){return;} if(e.target===tp){ setTimeout(function(){tp.classList.add("on");},250); } else { run(e.target); } io.unobserve(e.target); }); },{threshold:.6});
+  document.querySelectorAll("[data-count]").forEach(function(el){ io.observe(el); });
+  if(tp){ io.observe(tp); }
+})();
+</script>

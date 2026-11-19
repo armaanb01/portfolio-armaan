@@ -27,6 +27,37 @@
   .again:hover{border-color:var(--ink)}
   .tag{display:inline-block;background:var(--accent);color:#111;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
 
+
+  /* 6. staafdiagram */
+  .chart{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:40px 34px 26px;overflow:hidden}
+  .grid-l{position:absolute;left:34px;right:34px;top:40px;bottom:72px;background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(25%% - 1px),#F1ECDD calc(25%% - 1px),#F1ECDD 25%%);pointer-events:none}
+  .bars{position:relative;height:360px;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:end;border-bottom:2px dashed #E5DCC2;padding-bottom:0}
+  .bar{display:flex;flex-direction:column;justify-content:flex-end;height:100%%;position:relative}
+  .pillar{position:relative;height:0;background:linear-gradient(180deg,var(--c),color-mix(in srgb,var(--c) 70%%,#fff));border-radius:16px 16px 6px 6px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.04);transition:height 1s cubic-bezier(.2,.9,.25,1.12);transition-delay:calc(var(--i)*.18s)}
+  .bar:last-child .pillar{box-shadow:0 18px 40px -16px rgba(229,174,0,.65)}
+  .chart.go .pillar{height:calc(var(--h) - 54px)}
+  .val{position:absolute;left:0;right:0;bottom:calc(100%% + 10px);display:flex;justify-content:center}
+  .val .reel{font-size:clamp(28px,3.6vw,48px);color:#111}
+  .lab{position:absolute;top:calc(100%% + 12px);left:0;right:0;text-align:center;font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .chart .bars{margin-bottom:40px}
+  .note{position:absolute;right:22px;bottom:12px;font-size:11.5px;color:var(--faint)}
+  /* 7. lijngrafiek */
+  .lchart{position:relative;background:linear-gradient(180deg,#FFFDF6,#FFF8DB);border:1px solid var(--line);border-radius:26px;padding:30px 26px 46px;overflow:hidden}
+  .lchart svg{display:block;width:100%%;height:340px;overflow:visible}
+  .lchart .base{stroke:#E5DCC2;stroke-width:2;stroke-dasharray:6 7}
+  .lchart .area{fill:url(#lg);opacity:0;transition:opacity .9s ease .9s}
+  .lchart .ln{fill:none;stroke:#E5AE00;stroke-width:5;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:1}
+  .lchart.go .ln{transition:stroke-dashoffset 1.6s cubic-bezier(.5,0,.2,1);stroke-dashoffset:0}
+  .lchart.go .area{opacity:1}
+  .lchart .pt{fill:#fff;stroke:#E5AE00;stroke-width:4;transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform .45s cubic-bezier(.3,1.7,.5,1);transition-delay:calc(.25s + var(--i)*.42s)}
+  .lchart.go .pt{transform:scale(1)}
+  .lv{position:absolute;transform:translate(-50%%,calc(-100%% - 20px));text-align:center;opacity:0;transition:opacity .3s ease;transition-delay:calc(.25s + var(--i)*.42s)}
+  .lchart.go .lv{opacity:1}
+  .lv .reel{font-size:clamp(24px,3.2vw,42px);color:#111;justify-content:center}
+  .lv small{display:block;font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px;white-space:nowrap}
+  .lchart .lv:nth-of-type(1){margin-top:30px}
+  @media (max-width:700px){.bars{height:300px;gap:10px}.lab{font-size:9.5px}.lv small{display:none}}
+
   /* 0. huidig */
   .st-a{display:grid;grid-template-columns:auto 1fr;gap:28px 56px;align-items:center;border-top:2px solid var(--ink);padding-top:34px}
   .st-hero{display:flex;align-items:center;gap:22px}
@@ -100,9 +131,33 @@
 <div class="wrap">
   <header>
     <p class="eyebrow">armaan · banaan — voorbeelden</p>
-    <h1>Vijf manieren om je cijfers te laten zien</h1>
+    <h1>Manieren om je cijfers te laten zien</h1>
     <p>Elke variant speelt af zodra hij in beeld komt. Met “Opnieuw” zie je hem nog een keer. Kies er één, of combineer er twee.</p>
   </header>
+
+  <section class="v" data-v="6">
+    <div class="v-head"><div><span class="tag">Nieuw</span><h2>6 · Staafdiagram met gokkastcijfers</h2><p>De staven schieten één voor één omhoog, en bovenop rollen de cijfers naar hun waarde. Zachte geeltinten, van licht naar banaan.</p></div><button class="again" type="button">↺ Opnieuw</button></div>
+    <div class="chart">
+      <div class="grid-l"></div>
+      <div class="bars"><div class="bar" style="--h:30.0%;--c:#FFF3BF;--i:0"><div class="pillar"><div class="val"><div class="reel" data-slot="24K"></div></div></div><span class="lab">volgers op Instagram</span></div><div class="bar" style="--h:40.3%;--c:#FFE680;--i:1"><div class="pillar"><div class="val"><div class="reel" data-slot="76K"></div></div></div><span class="lab">volgers op TikTok</span></div><div class="bar" style="--h:83.2%;--c:#FFDB3D;--i:2"><div class="pillar"><div class="val"><div class="reel" data-slot="9,2M"></div></div></div><span class="lab">likes op TikTok</span></div><div class="bar" style="--h:100.0%;--c:#FFD60A;--i:3"><div class="pillar"><div class="val"><div class="reel" data-slot="60M+"></div></div></div><span class="lab">totale views</span></div></div>
+      <span class="note">* staven niet op schaal</span>
+    </div>
+  </section>
+
+  <section class="v" data-v="7">
+    <div class="v-head"><div><span class="tag">Nieuw</span><h2>7 · Lijngrafiek die omhoog schiet</h2><p>Een lijn die zichzelf tekent, met een zachte gele vulling. Bij elk punt rolt het cijfer tevoorschijn.</p></div><button class="again" type="button">↺ Opnieuw</button></div>
+    <div class="lchart">
+      <svg viewBox="0 0 800 340" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD60A" stop-opacity=".55"/><stop offset="1" stop-color="#FFD60A" stop-opacity="0"/></linearGradient></defs>
+        <line x1="40" y1="300" x2="760" y2="300" class="base"/>
+        <path class="area" d="M110 222.0 C141.7 217.5 236.7 218.2 300 195.2 C363.3 172.1 426.7 109.6 490 83.7 C553.3 57.8 648.3 47.3 680 40.0 L680 300 L110 300 Z"/>
+        <path class="ln" d="M110 222.0 C141.7 217.5 236.7 218.2 300 195.2 C363.3 172.1 426.7 109.6 490 83.7 C553.3 57.8 648.3 47.3 680 40.0" pathLength="1"/>
+        <circle class="pt" cx="110" cy="222.0" r="9" style="--i:0"/><circle class="pt" cx="300" cy="195.2" r="9" style="--i:1"/><circle class="pt" cx="490" cy="83.7" r="9" style="--i:2"/><circle class="pt" cx="680" cy="40.0" r="9" style="--i:3"/>
+      </svg>
+      <div class="lv" style="left:13.75%;top:65.29%;--i:0"><div class="reel" data-slot="24K"></div><small>volgers op Instagram</small></div><div class="lv" style="left:37.50%;top:57.41%;--i:1"><div class="reel" data-slot="76K"></div><small>volgers op TikTok</small></div><div class="lv" style="left:61.25%;top:24.62%;--i:2"><div class="reel" data-slot="9,2M"></div><small>likes op TikTok</small></div><div class="lv" style="left:85.00%;top:11.76%;--i:3"><div class="reel" data-slot="60M+"></div><small>totale views</small></div>
+      <span class="note">* niet op schaal</span>
+    </div>
+  </section>
 
   <section class="v" data-v="0">
     <div class="v-head"><div><span class="tag">Nu live</span><h2>0 · Oplopende cijfers</h2><p>Ter vergelijking: zo staat het nu op je site.</p></div><button class="again" type="button">↺ Opnieuw</button></div>
@@ -174,11 +229,11 @@
       return '<span class="col" data-d="'+c+'">'+s+'</span>';
     }).join("");
   });
-  function slots(sec){
-    var cols=sec.querySelectorAll(".col"), i=0;
+  function slots(sec,extra){
+    var cols=sec.querySelectorAll(".col"), i=0; extra=extra||0;
     cols.forEach(function(c){ c.style.transition="none"; c.style.transform="translateY(0)"; });
     void sec.offsetWidth;
-    cols.forEach(function(c){ var d=parseInt(c.dataset.d,10); c.style.transition="transform "+(1.2+i*0.18)+"s cubic-bezier(.2,.9,.25,1.05)"; c.style.transform="translateY(-"+(20+d)+"em)"; i++; });
+    cols.forEach(function(c){ var d=parseInt(c.dataset.d,10); c.style.transition="transform "+(1.2+extra+i*0.18)+"s cubic-bezier(.2,.9,.25,1.05)"; c.style.transform="translateY(-"+(20+d)+"em)"; i++; });
   }
 
   /* 3: stickers */
@@ -201,6 +256,7 @@
     if(v==="1"){ slots(sec); }
     if(v==="3"){ stickers(sec); }
     if(v==="4"){ live(); }
+    if(v==="6"||v==="7"){ var c=sec.querySelector(".chart,.lchart"); c.classList.remove("go"); sec.querySelectorAll(".col").forEach(function(x){ x.style.transition="none"; x.style.transform="translateY(0)"; }); void c.offsetWidth; c.classList.add("go"); setTimeout(function(){ slots(sec, v==="6"?0.9:0.5); }, v==="6"?350:300); }
   }
   var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ speel(e.target); io.unobserve(e.target); } }); },{threshold:.45});
   document.querySelectorAll("section.v").forEach(function(s){ io.observe(s); var b=s.querySelector(".again"); if(b){ b.addEventListener("click",function(){ speel(s); }); } });

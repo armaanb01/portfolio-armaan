@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cijfers: voorbeelden — Armaan Banaan</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  :root{--bg:#FFFDF6;--bg-2:#FFF6CC;--surface:#FFFFFF;--line:#ECE6D3;--ink:#111111;--muted:#55524A;--faint:#8D887A;--accent:#FFD60A;--accent-text:#B58900}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  h1,h2,b.n{font-family:"Bricolage Grotesque",sans-serif;letter-spacing:-.03em}
+  header{padding:56px 0 20px}
+  header h1{font-size:clamp(32px,5vw,52px);margin:8px 0 10px;line-height:1}
+  header p{color:var(--muted);max-width:60ch;margin:0}
+  .eyebrow{font-family:"DM Mono",monospace;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0}
+  section.v{padding:46px 0 54px;border-top:1px solid var(--line)}
+  .v-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:30px;flex-wrap:wrap}
+  .v-head h2{font-size:28px;margin:6px 0 4px;line-height:1.1}
+  .v-head p{margin:0;color:var(--muted);font-size:15.5px;max-width:58ch}
+  .again{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer}
+  .again:hover{border-color:var(--ink)}
+  .tag{display:inline-block;background:var(--accent);color:#111;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+
+  /* 0. huidig */
+  .st-a{display:grid;grid-template-columns:auto 1fr;gap:28px 56px;align-items:center;border-top:2px solid var(--ink);padding-top:34px}
+  .st-hero{display:flex;align-items:center;gap:22px}
+  .st-big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(76px,11vw,148px);line-height:.85;letter-spacing:-.05em;color:#111;background:var(--accent);padding:6px 18px 10px;border-radius:14px;transform:rotate(-2deg);display:inline-block;box-shadow:6px 6px 0 #111}
+  .st-cap{font-size:17px;color:var(--muted);max-width:18ch;line-height:1.35}
+  .st-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .st-row div{display:flex;flex-direction:column;gap:4px;border-left:2px solid var(--line);padding-left:16px}
+  .st-row b{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.03em;line-height:1}
+  .st-row span{font-size:14px;color:var(--muted)}
+
+  /* 1. gokkastrollen */
+  .slot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .slot{background:#111;color:#fff;border-radius:20px;padding:26px 22px 22px;box-shadow:0 14px 30px -18px rgba(0,0,0,.6)}
+  .slot:first-child{background:var(--accent);color:#111}
+  .reel{display:flex;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(44px,5.4vw,66px);line-height:1;letter-spacing:-.03em;height:1em;overflow:hidden}
+  .reel .col{display:flex;flex-direction:column;transition:transform 1.6s cubic-bezier(.2,.9,.25,1.05)}
+  .reel .col span,.reel .fix{height:1em;display:block}
+  .slot small{display:block;margin-top:12px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.75}
+
+  /* 2. vergelijkingen */
+  .cmp{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+  .cmp > div{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px 28px}
+  .cmp b.n{display:block;font-weight:800;font-size:clamp(60px,8vw,104px);line-height:.9}
+  .cmp .eq{margin-top:14px;font-size:20px;line-height:1.35}
+  .cmp .eq mark{background:linear-gradient(transparent 55%,var(--accent) 55%);color:inherit;padding:0 .1em}
+  .cmp .small b.n{font-size:clamp(46px,5.6vw,72px)}
+  .cmp .src{display:block;margin-top:10px;font-size:12.5px;color:var(--faint)}
+
+  /* 3. stickers */
+  .stick{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;padding:20px 0}
+  .sticker{position:relative;background:var(--accent);color:#111;border-radius:18px;padding:22px 26px 18px;min-width:200px;box-shadow:0 3px 0 rgba(0,0,0,.08),0 18px 30px -16px rgba(0,0,0,.45);border:3px solid #fff;outline:1px solid var(--line);transform:rotate(var(--r)) scale(0);opacity:0}
+  .sticker:nth-child(2){background:#fff}
+  .sticker:nth-child(3){background:#111;color:#fff}
+  .sticker:nth-child(4){background:#FFE98A}
+  .sticker b.n{display:block;font-weight:800;font-size:clamp(48px,5.6vw,68px);line-height:.95}
+  .sticker small{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+  .sticker::before{content:"";position:absolute;top:-12px;left:50%;width:56px;height:20px;margin-left:-28px;background:rgba(255,255,255,.65);border:1px solid rgba(0,0,0,.06);transform:rotate(-3deg)}
+  .play .sticker{animation:plak .6s cubic-bezier(.3,1.6,.5,1) forwards;animation-delay:calc(var(--i)*.14s)}
+  .sticker.done{opacity:1;transform:rotate(var(--r)) scale(1);animation:none}
+  .sticker.done:hover{animation:wiebel .5s ease}
+  @keyframes plak{0%{opacity:0;transform:rotate(calc(var(--r) - 14deg)) scale(1.7)}60%{opacity:1;transform:rotate(var(--r)) scale(.94)}100%{opacity:1;transform:rotate(var(--r)) scale(1)}}
+  @keyframes wiebel{0%,100%{transform:rotate(var(--r)) scale(1.04)}30%{transform:rotate(calc(var(--r) - 4deg)) scale(1.06)}60%{transform:rotate(calc(var(--r) + 3deg)) scale(1.06)}}
+
+  /* 4. live-teller */
+  .live{background:#111;color:#fff;border-radius:24px;padding:34px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .live .lbl{display:flex;align-items:center;gap:10px;font-family:"DM Mono",monospace;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#bbb}
+  .live .dot{width:10px;height:10px;border-radius:50%;background:#ff3b30;box-shadow:0 0 0 0 rgba(255,59,48,.6);animation:puls 1.6s infinite}
+  @keyframes puls{70%{box-shadow:0 0 0 12px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
+  .live b.n{display:block;font-weight:800;font-size:clamp(46px,7vw,92px);line-height:1;color:var(--accent);font-variant-numeric:tabular-nums;margin-top:8px}
+  .live .side{display:grid;grid-template-columns:repeat(3,auto);gap:10px 30px;font-size:14px;color:#bbb}
+  .live .side b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:28px;color:#fff;letter-spacing:-.02em}
+
+  /* 5. lichtkrant */
+  .ticker{background:var(--accent);color:#111;border-top:2px solid #111;border-bottom:2px solid #111;overflow:hidden;transform:rotate(-1.5deg);margin:10px -24px}
+  .ticker .t{display:flex;width:max-content;animation:loop 26s linear infinite}
+  .ticker .grp{display:flex;align-items:center;gap:34px;padding:16px 17px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;white-space:nowrap}
+  .ticker .grp i{font-style:normal;font-weight:600;font-family:"Instrument Sans",sans-serif;font-size:.5em;letter-spacing:0;text-transform:none}
+  .ticker .ster{font-size:.7em}
+  @keyframes loop{to{transform:translateX(-50%)}}
+  .ticker2{background:#111;color:var(--accent);transform:rotate(1deg);margin-top:-6px}
+  .ticker2 .t{animation-direction:reverse;animation-duration:32s}
+
+  @media (max-width:860px){
+    .st-a,.cmp{grid-template-columns:1fr}.slot-grid{grid-template-columns:1fr 1fr}.live .side{grid-template-columns:1fr 1fr 1fr}
+  }
+  @media (max-width:520px){.slot-grid,.st-row{grid-template-columns:1fr}.live .side{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){.ticker .t{animation:none}.sticker{opacity:1;transform:rotate(var(--r))}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">armaan · banaan — voorbeelden</p>
+    <h1>Vijf manieren om je cijfers te laten zien</h1>
+    <p>Elke variant speelt af zodra hij in beeld komt. Met “Opnieuw” zie je hem nog een keer. Kies er één, of combineer er twee.</p>
+  </header>
+
+  <section class="v" data-v="0">
+    <div class="v-head"><div><span class="tag">Nu live</span><h2>0 · Oplopende cijfers</h2><p>Ter vergelijking: zo staat het nu op je site.</p></div><button class="again" type="button">↺ Opnieuw</button></div>
+    <div class="st-a">
+      <div class="st-hero"><span class="st-big"><span data-count="60" data-suf="M+">60M+</span></span><span class="st-cap">views op TikTok en Instagram, voor merken én mijn eigen kanalen</span></div>
+      <div class="st-row">
+        <div><b data-count="76" data-suf="K">76K</b><span>volgers op TikTok</span></div>
+        <div><b data-count="24" data-suf="K">24K</b><span>volgers op Instagram</span></div>
+        <div><b data-count="9.2" data-dec="1" data-suf="M">9,2M</b><span>likes op TikTok</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="v" data-v="1">
+    <div class="v-head"><div><h2>1 · Gokkastrollen</h2><p>Elk cijfer rolt als een fruitautomaat naar zijn plek, en ze stoppen één voor één.</p></div><button class="again" type="button">↺ Opnieuw</button></div>
+    <div class="slot-grid">
+      <div class="slot"><div class="reel" data-slot="60M+"></div><small>totale views</small></div>
+      <div class="slot"><div class="reel" data-slot="76K"></div><small>volgers op TikTok</small></div>
+      <div class="slot"><div class="reel" data-slot="24K"></div><small>volgers op Instagram</small></div>
+      <div class="slot"><div class="reel" data-slot="9,2M"></div><small>likes op TikTok</small></div>
+    </div>
+  </section>
+
+  <section class="v" data-v="2">
+    <div class="v-head"><div><h2>2 · Vergelijkingen</h2><p>Grote getallen tastbaar maken, met een knipoog. Blijft beter hangen dan een los getal.</p></div><button class="again" type="button">↺ Opnieuw</button></div>
+    <div class="cmp">
+      <div><b class="n" data-count="60" data-suf="M+">60M+</b><p class="eq">views. Dat is <mark>elke Nederlander meer dan 3×</mark> 😮</p></div>
+      <div class="small"><b class="n" data-count="76" data-suf="K">76K</b><p class="eq">volgers op TikTok. Daarmee vul je <mark>bijna anderhalve Johan Cruijff ArenA</mark> 🏟️</p><span class="src">ArenA ≈ 55.000 plekken · Nederland ≈ 18 miljoen inwoners</span></div>
+    </div>
+  </section>
+
+  <section class="v" data-v="3">
+    <div class="v-head"><div><h2>3 · Stickers</h2><p>De cijfers ploffen als stickers op hun plek, en wiebelen als je eroverheen gaat.</p></div><button class="again" type="button">↺ Opnieuw</button></div>
+    <div class="stick">
+      <div class="sticker" style="--r:-5deg;--i:0"><b class="n">60M+</b><small>totale views</small></div>
+      <div class="sticker" style="--r:3deg;--i:1"><b class="n">76K</b><small>volgers op TikTok</small></div>
+      <div class="sticker" style="--r:-2deg;--i:2"><b class="n">24K</b><small>volgers op Instagram</small></div>
+      <div class="sticker" style="--r:4deg;--i:3"><b class="n">9,2M</b><small>likes op TikTok</small></div>
+    </div>
+  </section>
+
+  <section class="v" data-v="4">
+    <div class="v-head"><div><h2>4 · Live-teller</h2><p>Het grote getal telt op en loopt daarna heel langzaam door, alsof er live views bijkomen. Let op: dit is een effect, geen echte live-data.</p></div><button class="again" type="button">↺ Opnieuw</button></div>
+    <div class="live">
+      <div><span class="lbl"><span class="dot"></span>Totale views</span><b class="n" id="live-n">60.000.000</b></div>
+      <div class="side"><div><b>76K</b>volgers TikTok</div><div><b>24K</b>volgers Instagram</div><div><b>9,2M</b>likes TikTok</div></div>
+    </div>
+  </section>
+
+  <section class="v" data-v="5">
+    <div class="v-head"><div><h2>5 · Lichtkrant</h2><p>Twee schuine banden die rustig voorbij schuiven, met je cijfers en merken erin. Speels, en het kost weinig ruimte.</p></div></div>
+  </section>
+</div>
+<div class="ticker"><div class="t"><div class="grp"><span>60M+ <i>views</i></span><span class="ster">★</span><span>76K <i>volgers op TikTok</i></span><span class="ster">★</span><span>24K <i>op Instagram</i></span><span class="ster">★</span><span>9,2M <i>likes</i></span><span class="ster">★</span></div><div class="grp" aria-hidden="true"><span>60M+ <i>views</i></span><span class="ster">★</span><span>76K <i>volgers op TikTok</i></span><span class="ster">★</span><span>24K <i>op Instagram</i></span><span class="ster">★</span><span>9,2M <i>likes</i></span><span class="ster">★</span></div></div></div>
+<div class="ticker ticker2"><div class="t"><div class="grp"><span>Netflix</span><span class="ster">●</span><span>Bol</span><span class="ster">●</span><span>Universal</span><span class="ster">●</span><span>Schiphol</span><span class="ster">●</span><span>Sony Pictures</span><span class="ster">●</span><span>Paramount</span><span class="ster">●</span><span>NS</span><span class="ster">●</span></div><div class="grp" aria-hidden="true"><span>Netflix</span><span class="ster">●</span><span>Bol</span><span class="ster">●</span><span>Universal</span><span class="ster">●</span><span>Schiphol</span><span class="ster">●</span><span>Sony Pictures</span><span class="ster">●</span><span>Paramount</span><span class="ster">●</span><span>NS</span><span class="ster">●</span></div></div></div>
+<div style="height:120px"></div>
+
+<script>
+(function(){
+  /* 0 + 2: oplopend */
+  function fmt(v,dec,suf){ return (dec?v.toFixed(dec).replace(".",","):Math.round(v))+(suf||""); }
+  function count(el){ var to=parseFloat(el.dataset.count), dec=parseInt(el.dataset.dec||"0",10), suf=el.dataset.suf||""; var t0=null,d=1400; function f(t){ if(!t0){t0=t;} var p=Math.min(1,(t-t0)/d); p=1-Math.pow(1-p,3); el.textContent=fmt(to*p,dec,suf); if(p<1){requestAnimationFrame(f);} } requestAnimationFrame(f); }
+
+  /* 1: gokkastrollen */
+  document.querySelectorAll("[data-slot]").forEach(function(r){
+    r.innerHTML=r.dataset.slot.split("").map(function(c){
+      if(!/[0-9]/.test(c)){ return '<span class="fix">'+c+'</span>'; }
+      var s=""; for(var k=0;k<3;k++){ for(var n=0;n<10;n++){ s+="<span>"+n+"</span>"; } }
+      return '<span class="col" data-d="'+c+'">'+s+'</span>';
+    }).join("");
+  });
+  function slots(sec){
+    var cols=sec.querySelectorAll(".col"), i=0;
+    cols.forEach(function(c){ c.style.transition="none"; c.style.transform="translateY(0)"; });
+    void sec.offsetWidth;
+    cols.forEach(function(c){ var d=parseInt(c.dataset.d,10); c.style.transition="transform "+(1.2+i*0.18)+"s cubic-bezier(.2,.9,.25,1.05)"; c.style.transform="translateY(-"+(20+d)+"em)"; i++; });
+  }
+
+  /* 3: stickers */
+  function stickers(sec){ var st=sec.querySelectorAll(".sticker"); st.forEach(function(x){ x.classList.remove("done"); }); sec.classList.remove("play"); void sec.offsetWidth; sec.classList.add("play"); }
+  document.querySelectorAll(".sticker").forEach(function(x){ x.addEventListener("animationend",function(e){ if(e.animationName==="plak"){ x.classList.add("done"); } }); });
+
+  /* 4: live-teller */
+  var liveT=null;
+  function live(){
+    var el=document.getElementById("live-n"); clearInterval(liveT);
+    var doel=60000000, t0=null, d=1600;
+    function nl(n){ return Math.floor(n).toLocaleString("nl-NL"); }
+    function f(t){ if(!t0){t0=t;} var p=Math.min(1,(t-t0)/d); p=1-Math.pow(1-p,3); el.textContent=nl(doel*p); if(p<1){requestAnimationFrame(f);} else { var n=doel; liveT=setInterval(function(){ n+=Math.floor(Math.random()*4)+1; el.textContent=nl(n); },900); } }
+    requestAnimationFrame(f);
+  }
+
+  function speel(sec){
+    var v=sec.dataset.v;
+    if(v==="0"||v==="2"){ sec.querySelectorAll("[data-count]").forEach(count); }
+    if(v==="1"){ slots(sec); }
+    if(v==="3"){ stickers(sec); }
+    if(v==="4"){ live(); }
+  }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ speel(e.target); io.unobserve(e.target); } }); },{threshold:.45});
+  document.querySelectorAll("section.v").forEach(function(s){ io.observe(s); var b=s.querySelector(".again"); if(b){ b.addEventListener("click",function(){ speel(s); }); } });
+})();
+</script>
+</body>
+</html>

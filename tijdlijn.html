@@ -66,6 +66,18 @@
   .m-num{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:28px;letter-spacing:-.02em;line-height:1.1}
   .m-lbl{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
+  .tl-next{text-decoration:none}
+  .tl-next .tl-card{background:var(--accent-soft);border:2px dashed var(--accent);box-shadow:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:14px;text-align:center}
+  .tl-next .tl-q{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:19px;line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
+  .tl-next .tl-eyes{font-size:30px;line-height:1;display:inline-block;animation:peek 2.6s ease-in-out infinite}
+  .tl-next .tl-cta{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);border-radius:999px;padding:4px 9px}
+  .tl-next .tl-dot{background:var(--bg);box-shadow:0 0 0 5px var(--bg),0 0 0 2px var(--accent) inset,0 0 0 6.5px var(--accent)}
+  .tl-next .tl-date{color:var(--accent)}
+  .tl-next:hover .tl-card,.tl-next:focus-visible .tl-card{animation:wiggle .5s ease}
+  @keyframes peek{0%,70%,100%{transform:translateX(0)}78%{transform:translateX(-5px)}88%{transform:translateX(5px)}}
+  @keyframes wiggle{0%{transform:rotate(0) scale(1.14)}30%{transform:rotate(-3deg) scale(1.14)}60%{transform:rotate(3deg) scale(1.14)}100%{transform:rotate(0) scale(1.14)}}
+  @media (prefers-reduced-motion:reduce){.tl-next .tl-eyes,.tl-next:hover .tl-card{animation:none}}
+
   @media (max-width:700px){
     .tl-scroll{overflow:visible;-webkit-mask:none;mask:none;padding:10px 0}
     .tl-track{height:auto!important;width:auto!important;padding:20px 0}
@@ -166,6 +178,11 @@
       b.addEventListener("click",function(){ open(s); });
       track.appendChild(b);
     });
+
+    var nx=document.createElement("a");
+    nx.className="tl-item tl-next"; nx.href="./#boeken"; nx.setAttribute("aria-label","Jouw merk als volgende? Plan een kennismaking");
+    nx.innerHTML='<span class="tl-card" style="--r:'+hoeken[lijst.length%hoeken.length]+'deg"><span class="tl-eyes">👀</span><span class="tl-q">Jouw merk als volgende?</span><span class="tl-cta">Plan een kennismaking →</span></span><span class="tl-dot"></span><span class="tl-date">Binnenkort</span>';
+    track.appendChild(nx);
 
     function layout(){
       var items=track.querySelectorAll(".tl-item");

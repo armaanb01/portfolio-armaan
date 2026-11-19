@@ -128,41 +128,66 @@
 <script>
   /* ====== VUL HIER JE SAMENWERKINGEN IN ======
      wanneer:   "JJJJ-MM", bijv. "2026-03" (leeg = komt achteraan met "datum?")
+     label:     optioneel, eigen tekst voor de datum, bijv. "jan–mei 2026"
      logo:      exact zoals de alt-tekst in de merkenbalk op de homepage (bijv. "Bol", "Netflix", "Universal")
      video/poster: pad in de repo
      resultaten: lijst van [getal, label]                                        */
   var SAMENWERKINGEN = [
-    { wanneer:"2026-02", merk:"Bol", logo:"Bol", titel:"On-camera talent voor Bol",
-      vraag:"Een vast gezicht voor de TikTok van Bol, die hun scripts en concepten tot leven brengt.",
-      gemaakt:"Zo’n 20 TikTok-video’s in vier maanden, met een natuurlijke maar strakke vibe in het snelle TikTok-ritme.",
-      resultaten:[["10M+","Views"],["~20","Video’s"]], video:"videos/bol/2.mp4", poster:"videos/bol/2.jpg" },
-    { wanneer:"2026-03", merk:"Netflix", logo:"Netflix", titel:"‘Inside the Manosphere’",
-      vraag:"De documentaire ‘Inside the Manosphere’ onder de aandacht brengen.",
-      gemaakt:"Een pakkende video waarin ik mijn mening geef over de docu. Zelf gefilmd en geëdit.",
-      resultaten:[["58K","Views"],["3K","Likes"],["352","Shares"]], video:"videos/netflix/1.mp4", poster:"videos/netflix/1.jpg" },
-    { wanneer:"", merk:"Fernandes", logo:"Fernandes", titel:"Cultuurswitch met Fernandes",
-      vraag:"Humoristische content die bij Fernandes past.",
-      gemaakt:"Twee video’s waarin ik samen met een andere creator van cultuur wisselde.",
-      resultaten:[["45K","Views"],["7K","Likes"],["1,2K","Shares"]], video:"videos/fernandes/1.mp4", poster:"videos/fernandes/1.jpg" },
-    { wanneer:"", merk:"Universal", logo:"Universal", titel:"Filmreleases voor Universal",
-      vraag:"Bioscoopreleases als Insidious, Evil Dead Burn en Michael promoten.",
-      gemaakt:"Meerdere video’s, van concept tot filmen en editen.",
-      resultaten:[["350K","Views"],["21K","Likes"],["8K","Shares"]], video:"videos/universal/1.mp4", poster:"videos/universal/1.jpg" },
-    { wanneer:"", merk:"DPG Media", logo:"DPG Media", titel:"/Topics voor studenten",
+    { wanneer:"2026-01", label:"jan–mei 2026", merk:"Bol", logo:"Bol", titel:"On-camera talent voor Bol",
+      vraag:"Een vast gezicht voor de socials van Bol, die hun scripts en concepten tot leven brengt.",
+      gemaakt:"Zo’n 8 shootdagen van januari tot mei, met meerdere TikTok-video’s voor de eigen kanalen van Bol.",
+      resultaten:[["10M+","Views (met ad boost)"],["±8","Shootdagen"]], video:"videos/bol/2.mp4", poster:"videos/bol/2.jpg" },
+    { wanneer:"2026-03", merk:"DPG Media", logo:"DPG Media", titel:"/Topics voor studenten",
       vraag:"Het krantenabonnement /Topics tot leven brengen voor studenten.",
       gemaakt:"Twee video’s, van concept tot filmen en editen.",
-      resultaten:[["26K","Views"],["2K","Likes"],["250","Shares"]], video:"videos/dpg-topics/1.mp4", poster:"videos/dpg-topics/1.jpg" },
+      resultaten:[["120K","Views"],["8K","Likes"],["290","Shares"]], video:"videos/dpg-topics/1.mp4", poster:"videos/dpg-topics/1.jpg" },
+    { wanneer:"2026-03", merk:"Fernandes", logo:"Fernandes", titel:"Cultuurswitch met Fernandes",
+      vraag:"Humoristische content die bij Fernandes past.",
+      gemaakt:"Twee video’s op het account van Fernandes, waarin ik met een andere creator van cultuur wisselde.",
+      resultaten:[["45K","Views"],["7K","Likes"],["1,2K","Shares"]], video:"videos/fernandes/1.mp4", poster:"videos/fernandes/1.jpg" },
+    { wanneer:"2026-03", merk:"Netflix", logo:"Netflix", titel:"‘Inside the Manosphere’",
+      vraag:"De documentaire ‘Inside the Manosphere’ onder de aandacht brengen.",
+      gemaakt:"Een video op het account van Netflix, waarin ik mijn mening geef over de docu. Zelf gefilmd en geëdit.",
+      resultaten:[["58K","Views"],["3K","Likes"],["352","Shares"]], video:"videos/netflix/1.mp4", poster:"videos/netflix/1.jpg" },
     { wanneer:"2026-06", merk:"Schiphol", logo:"Schiphol", titel:"Een dagje Schiphol",
       vraag:"Nog invullen: wat vroeg Schiphol?",
       gemaakt:"Een Instagram Reel.",
-      resultaten:[], video:"videos/schiphol/1.mp4", poster:"videos/schiphol/1.jpg" }
+      resultaten:[["1,5M","Views (met ad boost)"],["1,2K","Likes"],["60","Shares"]], video:"videos/schiphol/1.mp4", poster:"videos/schiphol/1.jpg" },
+    { wanneer:"2026-07", merk:"Universal", logo:"Universal", titel:"Evil Dead Burn",
+      vraag:"De bioscooprelease van Evil Dead Burn promoten.",
+      gemaakt:"Een TikTok, ook geplaatst op Instagram.",
+      resultaten:[["120K","Views"],["8,2K","Likes"],["4K","Shares"]], video:"videos/universal/5.mp4", poster:"videos/universal/5.jpg" },
+    { wanneer:"2026-07", merk:"Emma Sleep", logo:"Emma", titel:"Emma Sleep",
+      vraag:"Nog invullen: wat vroeg Emma Sleep?",
+      gemaakt:"Een TikTok, ook geplaatst op Instagram.",
+      resultaten:[["10K","Views"],["1K","Likes"],["45","Shares"]], video:"videos/emma-sleep/1.mp4", poster:"videos/emma-sleep/1.jpg" },
+    { wanneer:"2026-08", merk:"Universal", logo:"Universal", titel:"Insidious",
+      vraag:"De bioscooprelease van Insidious promoten.",
+      gemaakt:"Een video voor TikTok en Instagram.",
+      resultaten:[["140K","Views"],["10,2K","Likes"],["4,5K","Shares"]], video:"videos/universal/4.mp4", poster:"videos/universal/4.jpg" },
+    { wanneer:"2026-09", merk:"Oxfam Novib", logo:"Oxfam Novib", titel:"Prinsjesdag met Oxfam Novib",
+      vraag:"Nog invullen: wat vroeg Oxfam Novib?",
+      gemaakt:"Een video voor de socials van Oxfam Novib rond Prinsjesdag.",
+      resultaten:[], video:"videos/oxfam-novib/2.mp4", poster:"videos/oxfam-novib/2.jpg" },
+    { wanneer:"2026-09", merk:"Universal", logo:"Universal", titel:"Resident Evil",
+      vraag:"De bioscooprelease van Resident Evil promoten.",
+      gemaakt:"Twee video’s voor TikTok en Instagram: een trendvideo en een video over de release.",
+      resultaten:[["90K","Views"],["2,3K","Likes"],["900","Shares"]], video:"videos/universal/6.mp4", poster:"videos/universal/6.jpg" },
+    { wanneer:"2026-09", label:"sep–okt 2026", merk:"NS", logo:"NS", titel:"Shootdagen voor NS",
+      vraag:"Content voor de eigen socials van NS.",
+      gemaakt:"Twee shootdagen met video’s voor de kanalen van NS.",
+      resultaten:[], video:"videos/ns/1.mp4", poster:"videos/ns/1.jpg" },
+    { wanneer:"2026-10", merk:"Oxfam Novib", logo:"Oxfam Novib", titel:"Olijfolie met Oxfam Novib",
+      vraag:"Nog invullen: wat vroeg Oxfam Novib?",
+      gemaakt:"Een TikTok, vijf dagen met ad boost.",
+      resultaten:[["55K","Views (met ad boost)"],["2K","Likes"],["350","Shares"]], video:"videos/oxfam-novib/1.mp4", poster:"videos/oxfam-novib/1.jpg" }
   ];
 
   (function(){
     try{var s=localStorage.getItem("armaan-theme"); if(s){document.documentElement.setAttribute("data-theme",s);}}catch(e){}
     var MAANDEN=["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
     function datum(w){ if(!w){return null;} var p=w.split("-"); return (p[1]?MAANDEN[parseInt(p[1],10)-1]+" ":"")+p[0]; }
-    var lijst=SAMENWERKINGEN.slice().sort(function(a,b){ if(!a.wanneer){return 1;} if(!b.wanneer){return -1;} return a.wanneer<b.wanneer?-1:1; });
+    var lijst=SAMENWERKINGEN.slice().sort(function(a,b){ if(!a.wanneer){return 1;} if(!b.wanneer){return -1;} return a.wanneer<b.wanneer?-1:(a.wanneer>b.wanneer?1:0); });
     var scroll=document.getElementById("tl-scroll"), track=document.getElementById("tl-track"), svg=document.getElementById("tl-line");
     var hoeken=[-4,3,-2.5,4,-3,2];
     var play='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
@@ -170,7 +195,7 @@
     lijst.forEach(function(s,i){
       var b=document.createElement("button");
       b.className="tl-item"; b.type="button"; b.setAttribute("aria-label",s.merk+": "+s.titel);
-      var d=datum(s.wanneer);
+      var d=s.label||datum(s.wanneer);
       b.innerHTML='<span class="tl-card" style="--r:'+hoeken[i%hoeken.length]+'deg"><video muted loop playsinline preload="none" poster="'+s.poster+'"><source src="'+s.video+'" type="video/mp4"></video><span class="tl-play">'+play+'</span><span class="tl-logo"><img data-logo="'+s.logo+'" alt="'+s.merk+'"></span></span><span class="tl-dot"></span><span class="tl-date'+(d?'':' missing')+'">'+(d||'datum?')+'</span>';
       var v=b.querySelector("video");
       b.addEventListener("mouseenter",function(){ var p=v.play(); if(p&&p.catch){p.catch(function(){});} });
@@ -224,7 +249,7 @@
       document.getElementById("m-title").textContent=s.titel;
       document.getElementById("m-vraag").textContent=s.vraag;
       document.getElementById("m-gemaakt").textContent=s.gemaakt;
-      var d=datum(s.wanneer), md=document.getElementById("m-date"); md.textContent=d||"datum?"; md.className="tl-date"+(d?"":" missing");
+      var d=s.label||datum(s.wanneer), md=document.getElementById("m-date"); md.textContent=d||"datum?"; md.className="tl-date"+(d?"":" missing");
       var ml=document.getElementById("m-logo"); ml.alt=s.merk; ml.src=logos[s.logo]||"";
       document.getElementById("m-metrics").innerHTML=(s.resultaten||[]).map(function(r){return '<div><div class="m-num">'+r[0]+'</div><div class="m-lbl">'+r[1]+'</div></div>';}).join("");
       mv.poster=s.poster; mv.src=s.video;

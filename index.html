@@ -365,8 +365,9 @@
   .pf-t:hover img{transform:scale(1.08)}
   .pf-t span{position:absolute;left:6px;bottom:5px;display:flex;align-items:center;gap:2px;color:#fff;font-size:12px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.7)}
   .pf-t span svg{width:11px;height:11px}
-  .pf .reel{display:inline-flex;height:1em;overflow:hidden}
-  .pf .reel .col{display:flex;flex-direction:column}.pf .reel .col span,.pf .reel .fix{display:block;height:1em}
+  .pf .reel{display:inline-flex;height:1em;line-height:1;overflow:hidden;vertical-align:top}
+  .pf .reel .col{display:flex;flex-direction:column;flex:none;will-change:transform}
+  .pf .reel .col span,.pf .reel .fix{display:block;height:1em;line-height:1em;text-align:center}
   @media (max-width:900px){
     .pf-stage{height:auto;padding:20px 0 10px}
     .pf-doodle{display:none}
@@ -740,16 +741,27 @@
 (function(){
   var pf=document.getElementById("pf"); if(!pf){return;}
   var rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
-  pf.querySelectorAll("[data-slot]").forEach(function(r){
-    r.innerHTML=r.dataset.slot.split("").map(function(c){
-      if(!/[0-9]/.test(c)){ return '<span class="fix">'+c+'</span>'; }
-      var s=""; for(var k=0;k<3;k++){ for(var n=0;n<10;n++){ s+="<span>"+n+"</span>"; } }
-      return '<span class="col" data-d="'+c+'">'+s+'</span>';
-    }).join("");
-  });
-  function rol(reel,start,dur){ var cols=reel.querySelectorAll(".col"),n=cols.length; cols.forEach(function(c,i){ var d=parseInt(c.dataset.d,10); setTimeout(function(){ c.style.transition=rm?"none":"transform "+(dur+i*0.16)+"s cubic-bezier(.2,.9,.25,1.05)"; c.style.transform="translateY(-"+(20+d)+"em)"; }, rm?0:start*1000); });
-    setTimeout(function(){ reel.textContent=reel.dataset.slot; }, rm?0:(start+dur+n*0.16)*1000+80); }
-  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting){return;} pf.classList.add("go"); pf.querySelectorAll(".pf-stats .reel").forEach(function(r,i){ rol(r,0.6+i*0.2,1.1); }); io.disconnect(); }); },{threshold:.3});
+  var reels=pf.querySelectorAll(".pf-stats [data-slot]");
+  function bouw(){
+    reels.forEach(function(r){
+      var tekst=r.dataset.slot;
+      r.innerHTML=tekst.split("").map(function(c){
+        if(!/[0-9]/.test(c)){ return '<span class="fix">'+c+'</span>'; }
+        var s=""; for(var k=0;k<3;k++){ for(var n=0;n<10;n++){ s+="<span>"+n+"</span>"; } }
+        return '<span class="col" data-d="'+c+'">'+s+'</span>';
+      }).join("");
+      /* elk rolletje krijgt de breedte van zijn eindcijfer: geen sprong aan het eind */
+      var meet=document.createElement("span"); meet.style.cssText="position:absolute;visibility:hidden;white-space:pre"; r.appendChild(meet);
+      r.querySelectorAll(".col").forEach(function(c){ meet.textContent=c.dataset.d; c.style.width=meet.getBoundingClientRect().width+"px"; });
+      r.removeChild(meet);
+    });
+  }
+  function rol(reel,start,dur){ reel.querySelectorAll(".col").forEach(function(c,i){ var d=parseInt(c.dataset.d,10); setTimeout(function(){ c.style.transition=rm?"none":"transform "+(dur+i*0.16)+"s cubic-bezier(.2,.9,.25,1.05)"; c.style.transform="translateY(-"+(20+d)+"em)"; }, rm?0:start*1000); }); }
+  var klaar=(document.fonts&&document.fonts.load)?Promise.all([document.fonts.load('800 24px "Bricolage Grotesque"'),document.fonts.ready]).catch(function(){}):Promise.resolve();
+  var gezien=false, gebouwd=false;
+  function start(){ if(!gezien||!gebouwd){return;} pf.classList.add("go"); reels.forEach(function(r,i){ rol(r,0.6+i*0.2,1.1); }); start=function(){}; }
+  klaar.then(function(){ bouw(); gebouwd=true; start(); });
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting){return;} gezien=true; if(gebouwd){ start(); } else { pf.classList.add("go"); } io.disconnect(); }); },{threshold:.3});
   io.observe(pf);
 })();
 </script>

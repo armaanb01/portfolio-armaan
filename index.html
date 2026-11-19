@@ -305,13 +305,14 @@
   @media (max-width:860px){.st-a{grid-template-columns:1fr}.st-hero{flex-wrap:wrap}}
   @media (max-width:520px){.st-row{grid-template-columns:1fr}}
   /* zo werkt het */
-  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
   .steps li{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 22px}
   .steps li:not(:last-child)::after{content:"";position:absolute;top:38px;right:-14px;width:12px;border-top:2px dashed var(--doodle)}
   .steps .st-n{font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.06em}
   .steps h3{font-size:21px;margin:10px 0 8px}
   .steps p{margin:0;color:var(--muted);font-size:15px}
-  @media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps li::after{display:none}}
+  @media (max-width:1000px){.steps{grid-template-columns:repeat(3,1fr)}.steps li::after{display:none}}
+  @media (max-width:700px){.steps{grid-template-columns:1fr 1fr}}
   @media (max-width:520px){.steps{grid-template-columns:1fr}}
 </style>
 
@@ -469,7 +470,7 @@
       <div class="sec-head reveal">
         <div>
           <p class="eyebrow">Zo werkt het</p>
-          <h2>Van briefing tot opname</h2>
+          <h2>Van briefing tot livegang</h2>
         </div>
         <p>Geen gedoe: we stemmen alles samen af voordat de camera aangaat.</p>
       </div>
@@ -478,6 +479,7 @@
         <li class="reveal"><span class="st-n">02</span><h3>Kennismaking</h3><p>We checken samen of we hetzelfde voor ogen hebben.</p></li>
         <li class="reveal"><span class="st-n">03</span><h3>Concept</h3><p>Voor de meeste video’s kom ik met een idee. Anders komen we er samen uit.</p></li>
         <li class="reveal"><span class="st-n">04</span><h3>Opname</h3><p>Een shootdag op locatie, ergens anders, of ik regel het zelf. Dat stemmen we samen af.</p></li>
+        <li class="reveal"><span class="st-n">05</span><h3>Live</h3><p>De video gaat live op het kanaal dat we samen hebben afgesproken.</p></li>
       </ol>
     </div>
   </section>

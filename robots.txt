@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /tijdlijn.html
+
+Sitemap: https://armaanbanaan.nl/sitemap.xml

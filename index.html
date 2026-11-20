@@ -202,8 +202,9 @@
   .foot-links a:hover{color:var(--accent)}
 
   /* logo marquee */
-  .marquee-band{padding:56px 0 12px}
-  .marquee-head{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+  .marquee-band{padding:22px 0 12px}
+  .mq-label{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
+  .marquee-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
   .marquee-head .eyebrow{white-space:nowrap}
   .marquee-head .rule{height:1px;background:var(--line);flex:1}
   .marquee{position:relative;overflow:hidden;
@@ -276,7 +277,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="tijdlijn.css">
+<link rel="stylesheet" href="tijdlijn.css?v=81">
 <style>
   /* ===== Huisstijl A: Banaan-pop (licht + donker) ===== */
   :root{--bg:#FFFDF6;--bg-2:#FFF6CC;--surface:#FFFFFF;--surface-2:#FFF9E0;--line:#ECE6D3;--ink:#111111;--muted:#55524A;--faint:#8D887A;--accent:#FFD60A;--accent-ink:#111111;--accent-soft:rgba(255,214,10,.22);--accent-text:#B58900;--doodle:#E5AE00;--logo:#333;--st-shadow:#111;--shadow:0 1px 2px rgba(0,0,0,.05),0 14px 34px -18px rgba(0,0,0,.28);--grain:.03}
@@ -453,7 +454,7 @@
 
   <section class="marquee-band" id="merken" aria-label="Merken waarmee Armaan heeft samengewerkt">
     <div class="wrap marquee-head">
-      <span class="eyebrow">Gewerkt met</span>
+      <span class="mq-label">Gewerkt met o.a.</span>
     </div>
     <div class="marquee">
       <div class="marquee-track">
@@ -572,8 +573,8 @@
   <section id="boeken">
     <div class="wrap">
       <div class="contact reveal">
-        <h2>Een campagne in gedachten?</h2>
-        <p>Net zo hyped als ik? Vertel kort wat je van plan bent, dan gaan we samen sparren over het idee.</p>
+        <h2>Een campagne in gedachten? 🙌</h2>
+        <p>Super gaaf! Vertel me kort wat je van plan bent, dan gaan we samen sparren over het idee.</p>
         <form class="c-form" id="c-form" hidden>
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="c-row">
@@ -585,7 +586,7 @@
           <button class="btn btn-primary" type="submit">Verstuur aanvraag</button>
           <p class="c-status" role="status"></p>
         </form>
-        <p class="c-alt">Liever direct mailen? Mijn management bij Vane: <a href="mailto:anke@vanetheagency.com?subject=Samenwerking%20met%20Armaan">anke@vanetheagency.com</a><br>Of stuur me gewoon een DM op <a href="https://www.instagram.com/armaanbanaan" target="_blank" rel="noopener">Instagram</a> 👋</p>
+        <p class="c-alt">Liever geen formulier? Stuur me gewoon een DM op <a href="https://www.instagram.com/armaanbanaan" target="_blank" rel="noopener">Instagram</a> 👋</p>
       </div>
     </div>
   </section>
@@ -654,7 +655,7 @@
     document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
   })();
 </script>
-<script src="tijdlijn.js"></script>
+<script src="tijdlijn.js?v=81"></script>
 
 <script>
 (function(){

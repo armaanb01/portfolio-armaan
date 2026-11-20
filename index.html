@@ -329,6 +329,9 @@
   .hs-link{position:relative;padding-right:44px;border-radius:0 14px 14px 0;transition:background .2s}
   .hs-go{position:absolute;top:6px;right:8px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
   .hs-go svg{width:15px;height:15px}
+  [data-slotbox] .reel .fix{white-space:nowrap}
+  @media (min-width:1100px){.hero-reel{zoom:1.24}}
+  @media (min-width:861px) and (max-width:1099px){.hero-reel{zoom:1.08}}
   @media (max-width:860px){.hs-link{padding-right:8px}.hs-go{width:24px;height:24px}.hs-go svg{width:13px;height:13px}}
   .hs-link:hover{background:rgba(255,214,10,.12)}
   .hs-link:hover .hs-go,.hs-link:focus-visible .hs-go{transform:translate(2px,-2px) rotate(8deg) scale(1.08)}
@@ -714,7 +717,7 @@
       var m=document.createElement("span"); m.style.cssText="position:absolute;visibility:hidden;white-space:pre"; r.appendChild(m);
       r.querySelectorAll(".col").forEach(function(c){ m.textContent=c.dataset.d; c.style.width=m.getBoundingClientRect().width+"px"; }); r.removeChild(m);
     }); }
-    function rol(r,start){ r.querySelectorAll(".col").forEach(function(c,i){ var d=parseInt(c.dataset.d,10); setTimeout(function(){ c.style.transition=rm?"none":"transform "+(1.1+i*.16)+"s cubic-bezier(.2,.9,.25,1.05)"; c.style.transform="translateY(-"+(20+d)+"em)"; }, rm?0:start*1000); }); }
+    function rol(r,start){ r.querySelectorAll(".col").forEach(function(c,i){ var d=parseInt(c.dataset.d,10); setTimeout(function(){ c.style.transition=rm?"none":"transform "+(1.1+i*.16)+"s cubic-bezier(.2,.9,.25,1.05)"; c.style.transform="translateY(-"+(20+d)+"em)"; }, rm?0:start*1000); }); var n=r.querySelectorAll(".col").length; setTimeout(function(){ r.innerHTML='<span class="fix">'+r.dataset.slot+'</span>'; r.style.width=""; }, rm?0:(start+1.1+n*.16)*1000+120); }
     function start(){ if(!gezien||!gebouwd){return;} box.classList.add("go"); reels.forEach(function(r,i){ rol(r,.35+i*.22); }); start=function(){}; }
     klaar.then(function(){ bouw(); gebouwd=true; start(); });
     var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ gezien=true; start(); io.disconnect(); } }); },{threshold:.35});

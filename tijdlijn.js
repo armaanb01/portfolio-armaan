@@ -1,7 +1,7 @@
 /* ====== VUL HIER JE SAMENWERKINGEN IN ======
    wanneer:    "JJJJ-MM", bijv. "2026-03" (bepaalt de volgorde)
    label:      optioneel, eigen tekst voor de datum, bijv. "jan–mei 2026"
-   logo:       exact zoals de alt-tekst in de merkenbalk (bijv. "Bol", "Netflix", "Universal")
+   logo:       exact zoals de alt-tekst in de merkenbalk (bijv. "Bol", "Netflix", "Universal Pictures")
    video/poster: pad in de repo
    meer:       optioneel, extra video's, bijv. ["bol/3","bol/4"] (map/nummer)
    resultaten: lijst van [getal, label]; de eerste staat op mobiel naast de video */
@@ -26,7 +26,7 @@ var SAMENWERKINGEN = [
     vraag:"Laten zien hoe relaxed je via Schiphol reist en wat er nog meer te beleven is: kom eerder en ontdek het gevarieerde horeca-aanbod en meer.",
     gemaakt:"Een Instagram Reel.",
     resultaten:[["1,5M","Views (met ad boost)"],["1,2K","Likes"],["60","Shares"]], video:"videos/schiphol/1.mp4", poster:"videos/schiphol/1.jpg" },
-  { wanneer:"2026-07", merk:"Universal", logo:"Universal", titel:"Evil Dead Burn",
+  { wanneer:"2026-07", merk:"Universal Pictures", logo:"Universal Pictures", titel:"Evil Dead Burn",
     vraag:"De bioscooprelease van Evil Dead Burn promoten.",
     gemaakt:"Een TikTok, ook geplaatst op Instagram.",
     resultaten:[["120K","Views"],["8,2K","Likes"],["4K","Shares"]], video:"videos/universal/5.mp4", poster:"videos/universal/5.jpg" },

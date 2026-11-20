@@ -41,7 +41,7 @@ var SAMENWERKINGEN = [
   { wanneer:"2026-09", merk:"Oxfam Novib", logo:"Oxfam Novib", titel:"Prinsjesdag met Oxfam Novib",
     vraag:"Een interviewvideo rond Prinsjesdag voor het eigen account van Oxfam Novib.",
     gemaakt:"Een straatinterview: wat zou jij doen als jij de miljarden mocht verdelen?",
-    resultaten:[], video:"videos/oxfam-novib/2.mp4", poster:"videos/oxfam-novib/2.jpg" },
+    kanaal:"Oxfam Novib", resultaten:[], video:"videos/oxfam-novib/2.mp4", poster:"videos/oxfam-novib/2.jpg" },
   { wanneer:"2026-09", merk:"Sony Pictures", logo:"Sony Pictures", titel:"Resident Evil",
     vraag:"De bioscooprelease van Resident Evil promoten.",
     gemaakt:"Twee video’s voor TikTok en Instagram: een trendvideo en een video over de release.",
@@ -49,7 +49,7 @@ var SAMENWERKINGEN = [
   { wanneer:"2026-09", label:"sep–okt 2026", merk:"NS", logo:"NS", titel:"Shootdagen voor NS",
     vraag:"Content voor de eigen socials van NS.",
     gemaakt:"Twee shootdagen met video’s voor de kanalen van NS.",
-    resultaten:[], video:"videos/ns/1.mp4", poster:"videos/ns/1.jpg", meer:["ns/2"] },
+    kanaal:"NS", resultaten:[], video:"videos/ns/1.mp4", poster:"videos/ns/1.jpg", meer:["ns/2"] },
   { wanneer:"2026-10", merk:"Oxfam Novib", logo:"Oxfam Novib", titel:"Olijfolie met Oxfam Novib",
     vraag:"De olijfolie van Oxfam Novib in de spotlight zetten, met als call to action een kennismaking met hun webshop.",
     gemaakt:"Een TikTok, vijf dagen met ad boost.",
@@ -75,7 +75,7 @@ var SAMENWERKINGEN = [
     b.className="tl-item"; b.type="button"; b.setAttribute("aria-label",s.merk+": "+s.titel);
     var d=s.label||datum(s.wanneer)||"";
     var r=(s.resultaten||[])[0];
-    var stat=r?'<b>'+r[0]+'</b> '+r[1].toLowerCase():s.titel;
+    var stat=r?'<b>'+r[0]+'</b> '+r[1].toLowerCase():(s.kanaal?'gepost op het kanaal van <b>'+s.kanaal+'</b>':s.titel);
     var src=logo(s.logo);
     b.innerHTML='<span class="tl-card" style="--r:'+hoeken[i%hoeken.length]+'deg"><video muted loop playsinline preload="none" poster="'+s.poster+'"><source src="'+s.video+'" type="video/mp4"></video><span class="tl-hint" style="--d:'+(i*0.35).toFixed(2)+'s">'+pijl+'<span class="t">Bekijk</span></span>'+(src?'<span class="tl-logo"><img data-logo="'+s.logo+'" src="'+src+'" alt="'+s.merk+'"></span>':'')+'</span><span class="tl-dot"></span><span class="tl-meta"><span class="tl-date">'+d+'</span><span class="tl-brand">'+s.merk+'</span><span class="tl-stat">'+stat+'</span></span>';
     var v=b.querySelector("video");
@@ -165,6 +165,7 @@ var SAMENWERKINGEN = [
     document.getElementById("m-date").textContent=s.label||datum(s.wanneer)||"";
     var ml=document.getElementById("m-logo"); ml.alt=s.merk; ml.src=logo(s.logo);
     document.getElementById("m-metrics").innerHTML=(s.resultaten||[]).map(function(r){return '<div><div class="m-num">'+r[0]+'</div><div class="m-lbl">'+r[1]+'</div></div>';}).join("");
+    if(!(s.resultaten||[]).length&&s.kanaal){ document.getElementById("m-metrics").innerHTML='<div class="m-kanaal">Gepost op het kanaal van <b>'+s.kanaal+'</b></div>'; }
     var mc=document.getElementById("m-cta"); if(mc){ var top=(s.resultaten||[]).reduce(function(a,r){ var t=String(r[0]).replace(/[^0-9,.KkMm]/g,"").replace(",","."); var n=parseFloat(t)||0; if(/m/i.test(t)){n*=1e6;} else if(/k/i.test(t)){n*=1e3;} return Math.max(a,n); },0); mc.hidden=s.geenCta||top<100000; }
     mv.poster=s.poster; mv.src=s.video;
     var alle=[{video:s.video,poster:s.poster}].concat((s.meer||[]).map(function(m){return {video:"videos/"+m+".mp4",poster:"videos/"+m+".jpg"};}));

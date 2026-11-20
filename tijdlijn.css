@@ -131,3 +131,5 @@
 .tl-item.tl-pulse .tl-dot{animation:tl-dotpulse .75s ease 1}
 @keyframes tl-pulse{0%{transform:rotate(var(--r,0deg)) scale(1)}45%{transform:rotate(0deg) scale(1.2);box-shadow:0 0 0 6px var(--accent),0 24px 46px -16px rgba(26,23,18,.45)}100%{transform:rotate(0deg) scale(1.14);box-shadow:0 0 0 0 var(--accent),0 24px 46px -16px rgba(26,23,18,.45)}}
 @keyframes tl-dotpulse{50%{transform:scale(1.8)}}
+
+.m-kanaal{grid-column:1/-1;font-size:15px;color:var(--muted)}.m-kanaal b{color:var(--ink)}

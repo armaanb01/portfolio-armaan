@@ -107,7 +107,7 @@
   .icon-btn:hover{color:var(--accent);border-color:var(--accent)}
 
   /* hero */
-  .hero{padding:72px 0 40px;position:relative}
+  .hero{padding:48px 0 40px;position:relative}
   .hero-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:52px;align-items:center}
   .hero h1{font-size:clamp(44px,7vw,86px)}
   .hero h1 .peel{color:var(--accent)}
@@ -738,7 +738,7 @@
 <script>
 (function(){
   var el=document.querySelector(".hero-reel"); if(!el){return;}
-  function fit(){ var z; if(innerWidth<=860){ z=Math.min(1,el.parentElement.clientWidth/460); } else { var nav=document.querySelector("nav"); var nh=nav?nav.getBoundingClientRect().height:70; var col=el.parentElement.getBoundingClientRect().width*.42; z=Math.max(.8,Math.min(1.24,(innerHeight-nh-40)/590,col/460)); } el.style.zoom=z.toFixed(3); }
+  function fit(){ var z; if(innerWidth<=860){ z=Math.min(1,el.parentElement.clientWidth/460); } else { var nav=document.querySelector("nav"); var nh=nav?nav.getBoundingClientRect().height:70; var col=el.parentElement.getBoundingClientRect().width*.42; z=Math.max(.8,Math.min(1.24,(innerHeight-nh-60)/590,col/460)); } el.style.zoom=z.toFixed(3); }
   fit(); addEventListener("resize",fit);
 })();
 </script>

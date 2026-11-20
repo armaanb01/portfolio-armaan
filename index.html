@@ -335,7 +335,7 @@
   .hs-go svg{width:15px;height:15px}
   [data-slotbox] .reel .fix{white-space:nowrap}
   @media (max-width:860px){
-    .hero-reel{position:relative;display:block;width:460px;height:590px;max-width:none;overflow:visible;padding:0;margin:4px auto 0;gap:0}
+    .hero-reel{position:relative;display:block;width:460px;height:590px;max-width:none;overflow:visible;padding:0;margin:4px 0 0;gap:0}
     .hero-reel .reel-card{position:absolute;width:170px}
     .hero-reel .reel-card.r1{top:40px!important;left:126px!important;transform:rotate(-7deg)!important}
     .hero-reel .reel-card.r2{top:212px!important;left:7px!important;transform:rotate(6deg)!important}
@@ -738,7 +738,7 @@
 <script>
 (function(){
   var el=document.querySelector(".hero-reel"); if(!el){return;}
-  function fit(){ var z; if(innerWidth<=860){ z=Math.min(1,el.parentElement.clientWidth/460); } else { var nav=document.querySelector("nav"); var nh=nav?nav.getBoundingClientRect().height:70; var col=el.parentElement.getBoundingClientRect().width*.42; z=Math.max(.8,Math.min(1.24,(innerHeight-nh-60)/590,col/460)); } el.style.zoom=z.toFixed(3); }
+  function fit(){ var z; if(innerWidth<=860){ var h=document.querySelector(".hero h1"); z=Math.min(1,(h?h.getBoundingClientRect().width:innerWidth-40)/460); } else { var nav=document.querySelector("nav"); var nh=nav?nav.getBoundingClientRect().height:70; var col=el.parentElement.getBoundingClientRect().width*.42; z=Math.max(.8,Math.min(1.24,(innerHeight-nh-60)/590,col/460)); } el.style.zoom=z.toFixed(3); }
   fit(); addEventListener("resize",fit);
 })();
 </script>

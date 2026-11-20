@@ -773,3 +773,12 @@
   m.addEventListener("wheel",function(e){ var d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:(e.shiftKey?e.deltaY:0); if(!d){return;} e.preventDefault(); x-=d; v=0; idle=0; },{passive:false});
 })();
 </script>
+<script>
+(function(){
+  var vids=[].slice.call(document.querySelectorAll(".hero-reel video"));
+  function speel(){ vids.forEach(function(v){ v.muted=true; v.setAttribute("muted",""); if(v.paused){ var p=v.play(); if(p&&p.catch){p.catch(function(){});} } }); }
+  speel(); addEventListener("load",speel);
+  ["touchstart","pointerdown","scroll","keydown"].forEach(function(ev){ addEventListener(ev,function h(){ speel(); removeEventListener(ev,h); },{passive:true}); });
+  document.addEventListener("visibilitychange",function(){ if(!document.hidden){speel();} });
+})();
+</script>

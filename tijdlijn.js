@@ -22,7 +22,7 @@ var SAMENWERKINGEN = [
     vraag:"De documentaire ‘Inside the Manosphere’ onder de aandacht brengen.",
     gemaakt:"Een video op het account van Netflix, waarin ik mijn mening geef over de docu. Zelf gefilmd en geëdit.",
     resultaten:[["58K","Views"],["3K","Likes"],["352","Shares"]], video:"videos/netflix/1.mp4", poster:"videos/netflix/1.jpg" },
-  { wanneer:"2026-06", merk:"Schiphol", logo:"Schiphol", titel:"Een dagje Schiphol",
+  {geenCta:true, wanneer:"2026-06", merk:"Schiphol", logo:"Schiphol", titel:"Een dagje Schiphol",
     vraag:"Laten zien hoe relaxed je via Schiphol reist en wat er nog meer te beleven is: kom eerder en ontdek het gevarieerde horeca-aanbod en meer.",
     gemaakt:"Een Instagram Reel.",
     resultaten:[["1,5M","Views (met ad boost)"],["1,2K","Likes"],["60","Shares"]], video:"videos/schiphol/1.mp4", poster:"videos/schiphol/1.jpg" },
@@ -165,7 +165,7 @@ var SAMENWERKINGEN = [
     document.getElementById("m-date").textContent=s.label||datum(s.wanneer)||"";
     var ml=document.getElementById("m-logo"); ml.alt=s.merk; ml.src=logo(s.logo);
     document.getElementById("m-metrics").innerHTML=(s.resultaten||[]).map(function(r){return '<div><div class="m-num">'+r[0]+'</div><div class="m-lbl">'+r[1]+'</div></div>';}).join("");
-    var mc=document.getElementById("m-cta"); if(mc){ var top=(s.resultaten||[]).reduce(function(a,r){ var t=String(r[0]).replace(/[^0-9,.KkMm]/g,"").replace(",","."); var n=parseFloat(t)||0; if(/m/i.test(t)){n*=1e6;} else if(/k/i.test(t)){n*=1e3;} return Math.max(a,n); },0); mc.hidden=top<100000; }
+    var mc=document.getElementById("m-cta"); if(mc){ var top=(s.resultaten||[]).reduce(function(a,r){ var t=String(r[0]).replace(/[^0-9,.KkMm]/g,"").replace(",","."); var n=parseFloat(t)||0; if(/m/i.test(t)){n*=1e6;} else if(/k/i.test(t)){n*=1e3;} return Math.max(a,n); },0); mc.hidden=s.geenCta||top<100000; }
     mv.poster=s.poster; mv.src=s.video;
     var alle=[{video:s.video,poster:s.poster}].concat((s.meer||[]).map(function(m){return {video:"videos/"+m+".mp4",poster:"videos/"+m+".jpg"};}));
     var mw=document.getElementById("m-more-wrap"), mm=document.getElementById("m-more");

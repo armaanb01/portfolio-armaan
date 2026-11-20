@@ -165,6 +165,7 @@ var SAMENWERKINGEN = [
     document.getElementById("m-date").textContent=s.label||datum(s.wanneer)||"";
     var ml=document.getElementById("m-logo"); ml.alt=s.merk; ml.src=logo(s.logo);
     document.getElementById("m-metrics").innerHTML=(s.resultaten||[]).map(function(r){return '<div><div class="m-num">'+r[0]+'</div><div class="m-lbl">'+r[1]+'</div></div>';}).join("");
+    var mc=document.getElementById("m-cta"); if(mc){ var top=(s.resultaten||[]).reduce(function(a,r){ var t=String(r[0]).replace(/[^0-9,.KkMm]/g,"").replace(",","."); var n=parseFloat(t)||0; if(/m/i.test(t)){n*=1e6;} else if(/k/i.test(t)){n*=1e3;} return Math.max(a,n); },0); mc.hidden=top<100000; }
     mv.poster=s.poster; mv.src=s.video;
     var alle=[{video:s.video,poster:s.poster}].concat((s.meer||[]).map(function(m){return {video:"videos/"+m+".mp4",poster:"videos/"+m+".jpg"};}));
     var mw=document.getElementById("m-more-wrap"), mm=document.getElementById("m-more");
@@ -175,6 +176,7 @@ var SAMENWERKINGEN = [
     modal.showModal(); var p=mv.play(); if(p&&p.catch){p.catch(function(){});}
   }
   modal.addEventListener("close",function(){ mv.pause(); });
+  var mca=document.getElementById("m-cta-a"); if(mca){ mca.addEventListener("click",function(){ modal.close(); }); }
   modal.addEventListener("click",function(e){ if(e.target===modal){ modal.close(); } });
   document.getElementById("m-x").addEventListener("click",function(){ modal.close(); });
 

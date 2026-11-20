@@ -202,7 +202,7 @@
   .foot-links a:hover{color:var(--accent)}
 
   /* logo marquee */
-  .marquee-band{padding:56px 0 12px;border-top:1px solid var(--line)}
+  .marquee-band{padding:56px 0 12px}
   .marquee-head{display:flex;align-items:center;gap:16px;margin-bottom:28px}
   .marquee-head .eyebrow{white-space:nowrap}
   .marquee-head .rule{height:1px;background:var(--line);flex:1}
@@ -334,6 +334,10 @@
   .hs-go{position:absolute;top:6px;right:8px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
   .hs-go svg{width:15px;height:15px}
   [data-slotbox] .reel .fix{white-space:nowrap}
+  .m-cta{display:flex;align-items:center;justify-content:space-between;gap:12px 16px;flex-wrap:wrap;padding:16px 18px;border:1px dashed color-mix(in srgb,var(--accent) 60%,var(--line));border-radius:14px;background:var(--accent-soft)}
+  .m-cta[hidden]{display:none}
+  .m-cta p{margin:0;font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em}
+  @media (max-width:860px){.hero-reel{margin-bottom:96px!important}}
   @media (max-width:860px){
     .hero-reel{position:relative;display:block;width:460px;height:590px;max-width:none;overflow:visible;padding:0;margin:4px 0 0;gap:0}
     .hero-reel .reel-card{position:absolute;width:170px}
@@ -433,7 +437,6 @@
         <p class="lede hero-in d3">TikToks en Reels die niet als reclame voelen, en wél worden afgekeken.</p>
         <div class="hero-cta hero-in d4">
           <a href="#werk" class="btn btn-primary">Bekijk samenwerkingen</a>
-          <a href="#boeken" class="btn btn-ghost">Samenwerken →</a>
         </div>
       </div>
         <div class="hero-reel"><svg class="reel-doodle" viewBox="0 0 460 590" aria-hidden="true"><defs><marker id="reel-ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker><mask id="reel-m1" maskUnits="userSpaceOnUse" x="-30" y="-30" width="520" height="650"><path class="dm" d="M40 72C30 120 60 160 85 140C100 128 92 112 82 122C72 134 88 160 106 163" pathLength="1"/></mask><mask id="reel-m2" maskUnits="userSpaceOnUse" x="-30" y="-30" width="520" height="650"><path class="dm" d="M372 42C352 66 318 60 326 44C334 30 362 48 372 64C380 76 386 82 392 86" pathLength="1"/></mask><mask id="reel-m3" maskUnits="userSpaceOnUse" x="-30" y="-30" width="520" height="650"><path class="dm" d="M326 556C280 566 250 540 262 520C272 504 296 512 286 526C274 544 228 492 184 470" pathLength="1"/></mask></defs><path class="dl" d="M40 72C30 120 60 160 85 140C100 128 92 112 82 122C72 134 88 160 106 163" marker-end="url(#reel-ah)" mask="url(#reel-m1)"/><path class="dl" d="M372 42C352 66 318 60 326 44C334 30 362 48 372 64C380 76 386 82 392 86" marker-end="url(#reel-ah)" mask="url(#reel-m2)"/><path class="dl" d="M326 556C280 566 250 540 262 520C272 504 296 512 286 526C274 544 228 492 184 470" marker-end="url(#reel-ah)" mask="url(#reel-m3)"/></svg><span class="reel-logo l-bol"><img data-logo="Bol" alt="bol.com"></span><span class="reel-logo l-uni"><img data-logo="Universal" alt="Universal"></span><span class="reel-logo l-net"><img data-logo="Netflix" alt="Netflix"></span><div class="reel-card r1"><video class="vid" autoplay muted loop playsinline preload="auto" poster="videos/bol/2.jpg"><source src="videos/bol/2.mp4" type="video/mp4"></video><img class="reel-cap-logo" data-logo="Bol" alt="bol.com"><span class="reel-views"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>1,2M views</span></div><div class="reel-card r2"><video class="vid" autoplay muted loop playsinline preload="auto" poster="videos/netflix/1.jpg"><source src="videos/netflix/1.mp4" type="video/mp4"></video><img class="reel-cap-logo" data-logo="Netflix" alt="Netflix"><span class="reel-views"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>58K views</span></div><div class="reel-card r3"><video class="vid" autoplay muted loop playsinline preload="auto" poster="videos/universal/1.jpg"><source src="videos/universal/1.mp4" type="video/mp4"></video><img class="reel-cap-logo" data-logo="Universal" alt="Universal"><span class="reel-views"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>160K views</span></div></div>
@@ -451,7 +454,6 @@
   <section class="marquee-band" id="merken" aria-label="Merken waarmee Armaan heeft samengewerkt">
     <div class="wrap marquee-head">
       <span class="eyebrow">Gewerkt met</span>
-      <span class="rule"></span>
     </div>
     <div class="marquee">
       <div class="marquee-track">
@@ -526,12 +528,6 @@
       <button class="tl-nav next" id="tl-next" type="button" aria-label="Volgende samenwerkingen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
     <div class="tl-progress"><span id="tl-count"></span><span class="tl-bar"><i id="tl-bar"></i></span><span>Sleep of klik →</span></div>
-    <div class="wrap">
-      <div class="werk-cta reveal">
-        <p>Zo’n resultaat voor jouw merk?</p>
-        <a href="#boeken" class="btn btn-primary">Plan een kennismaking →</a>
-      </div>
-    </div>
   </section>
 
   <section class="fmt-band" id="formats">
@@ -576,9 +572,8 @@
   <section id="boeken">
     <div class="wrap">
       <div class="contact reveal">
-        <p class="eyebrow" style="position:relative">Samenwerken</p>
         <h2>Een campagne in gedachten?</h2>
-        <p>Vertel kort wat je van plan bent, dan denk ik mee over het format.</p>
+        <p>Net zo hyped als ik? Vertel kort wat je van plan bent, dan gaan we samen sparren over het idee.</p>
         <form class="c-form" id="c-form" hidden>
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="c-row">
@@ -590,7 +585,7 @@
           <button class="btn btn-primary" type="submit">Verstuur aanvraag</button>
           <p class="c-status" role="status"></p>
         </form>
-        <p class="c-alt">Liever direct mailen? Mijn management bij Vane: <a href="mailto:anke@vanetheagency.com?subject=Samenwerking%20met%20Armaan">anke@vanetheagency.com</a></p>
+        <p class="c-alt">Liever direct mailen? Mijn management bij Vane: <a href="mailto:anke@vanetheagency.com?subject=Samenwerking%20met%20Armaan">anke@vanetheagency.com</a><br>Of stuur me gewoon een DM op <a href="https://www.instagram.com/armaanbanaan" target="_blank" rel="noopener">Instagram</a> 👋</p>
       </div>
     </div>
   </section>
@@ -617,6 +612,7 @@
       <div><div class="m-k">De vraag</div><p id="m-vraag"></p></div>
       <div><div class="m-k">Wat ik maakte</div><p id="m-gemaakt"></p></div>
       <div class="m-metrics" id="m-metrics"></div>
+      <div class="m-cta" id="m-cta" hidden><p>Zo’n resultaat voor jouw merk?</p><a href="#boeken" class="btn btn-primary" id="m-cta-a">Plan een kennismaking →</a></div>
       <div class="m-more-wrap" id="m-more-wrap" hidden><div class="m-k">Meer video’s van deze samenwerking</div><div class="m-more" id="m-more"></div></div>
     </div>
   </div>

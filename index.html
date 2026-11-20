@@ -211,6 +211,10 @@
     mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
   .marquee-track{display:flex;align-items:center;width:max-content;animation:marq 52s linear infinite}
   @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee.js .marquee-track{animation:none;will-change:transform}
+  .marquee.js{cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+  .marquee.js.drag{cursor:grabbing}
+  .marquee.js img{-webkit-user-drag:none;pointer-events:none}
   .logo-group{display:flex;align-items:center;gap:24px;padding-right:24px;flex:none}
   .logo-chip{flex:none;display:flex;align-items:center;justify-content:center;height:66px;padding:0 24px;border-radius:13px;background:#fcfcfb;border:1px solid rgba(20,17,11,.07);box-shadow:0 1px 2px rgba(0,0,0,.05),0 8px 20px -14px rgba(0,0,0,.35)}
   .logo-chip img{height:34px;width:auto;display:block}

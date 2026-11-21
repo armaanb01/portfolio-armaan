@@ -607,19 +607,23 @@
   <style>
   .cb-map{position:relative}
   .cb-lijnen{display:none}
-  .cb-kern{display:flex;flex-direction:column;align-items:center;gap:8px;margin:6px 0 18px;text-align:center}
-  .cb-kern img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);flex:none}
-  .cb-kern b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:20px;letter-spacing:-.02em}
-  #wie .fy-cats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-  #wie .fy-cat{position:relative;flex-direction:column;align-items:center;text-align:center;padding:18px 12px;gap:8px;min-width:0}
-  #wie .fy-cat:hover{transform:translateY(-3px)}
+  .cb-kern{display:flex;align-items:center;gap:12px;margin:4px 0 16px}
+  .cb-kern img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);flex:none}
+  .cb-kern b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:18px;letter-spacing:-.02em}
+  #wie .fy-cat{position:relative;align-items:center;padding:16px 46px 16px 18px}
   #wie .fy-cat em,#wie .fy-cat.on em{display:none}
-  #wie .fy-cat small{font-size:13.5px}
-  .cb-stat{display:block;margin-top:10px;font:12px "DM Mono",monospace;color:var(--muted)}
+  #wie .fy-cat::after{content:"";position:absolute;right:16px;top:50%;width:24px;height:24px;margin-top:-12px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/14px no-repeat;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
+  #wie .fy-cat.on::after{opacity:1;transform:none}
+  #wie .fy-cat:not(.on){opacity:.75}
+  #wie .fy-cat:not(.on):hover{opacity:1}
+  .cb-stat{display:block;margin-top:6px;font:12px "DM Mono",monospace;color:var(--muted)}
   #wie .fy-cat.on .cb-stat{color:var(--accent-text)}
-  @media (min-width:861px){ .fy-tekst h2,.fy-tekst .sub{text-align:center;margin-left:auto;margin-right:auto} }
   @media (max-width:860px){
-    #wie .fy-cats{gap:8px}#wie .fy-cat{padding:12px 6px;gap:6px}
+    .cb-kern{flex-direction:column;justify-content:center;text-align:center;gap:8px;margin:6px auto 16px}
+    .cb-kern img{width:84px;height:84px}.cb-kern b{font-size:20px}
+    #wie .fy-cats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    #wie .fy-cat{flex-direction:column;align-items:center;text-align:center;padding:12px 6px;gap:6px;min-width:0;opacity:1}
+    #wie .fy-cat::after{display:none}
     #wie .fy-cat small{display:none}#wie .fy-cat b{font-size:14px}.cb-stat{font-size:10.5px;margin-top:4px}
   }
 </style>

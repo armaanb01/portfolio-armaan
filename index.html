@@ -1027,11 +1027,24 @@
   var b=document.getElementById("tl-meer"), w=document.getElementById("werk"); if(!b||!w){return;}
   b.textContent="Toon de volledige tijdlijn ↓";
   b.addEventListener("click",function(){
-    var verborgen=[].filter.call(document.querySelectorAll("#tl-track button.tl-item"),function(x){ return !x.offsetParent; });
-    w.classList.remove("tl-kort");
-    verborgen.forEach(function(x,i){ x.style.animationDelay=(i*0.09)+"s"; x.classList.add("tl-uit"); });
-    var tr=document.getElementById("tl-track"); if(tr){ setTimeout(function(){ scrollTo({top:tr.getBoundingClientRect().top+scrollY-90,behavior:"smooth"}); },80); }
-    var lijnT=0, iv=setInterval(function(){ dispatchEvent(new Event("resize")); if((lijnT+=120)>1600){ clearInterval(iv); } },120);
+    var tr=document.getElementById("tl-track"), items=[].slice.call(document.querySelectorAll("#tl-track .tl-item"));
+    var rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+    function open(){
+      var oud=new Map(); items.forEach(function(x){ if(x.offsetParent){ oud.set(x,x.getBoundingClientRect()); } });
+      w.classList.remove("tl-kort"); dispatchEvent(new Event("resize"));
+      if(rm||!Element.prototype.animate){ return; }
+      var vw=innerWidth, vh=innerHeight, n=0;
+      items.forEach(function(x){
+        var r=x.getBoundingClientRect();
+        if(oud.has(x)){ var o=oud.get(x), dy=o.top-r.top; if(Math.abs(dy)>1){ x.animate([{transform:"translateY("+dy+"px)"},{transform:"none"}],{duration:700,easing:"cubic-bezier(.2,.8,.3,1)"}); } return; }
+        var dx=vw/2-(r.left+r.width/2), dy2=vh*0.85-(r.top+r.height/2), rot=(n%2?1:-1)*(8+Math.random()*14);
+        x.animate([{transform:"translate("+dx+"px,"+dy2+"px) rotate("+rot+"deg) scale(.55)",opacity:0},{opacity:1,offset:.25},{transform:"none",opacity:1}],{duration:850,delay:n*110,easing:"cubic-bezier(.2,.9,.3,1.12)",fill:"backwards"});
+        n++;
+      });
+      var t=0, iv=setInterval(function(){ dispatchEvent(new Event("resize")); if((t+=120)>2600){ clearInterval(iv); } },120);
+    }
+    var doel=tr.getBoundingClientRect().top+scrollY-90;
+    if(Math.abs(scrollY-doel)>40){ scrollTo({top:doel,behavior:rm?"auto":"smooth"}); setTimeout(open,rm?0:650); } else { open(); }
   });
 })();
 </script>

@@ -351,6 +351,16 @@
   .fy-feed{position:absolute;inset:0;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior:contain;scrollbar-width:none;display:none}
   .fy-feed::-webkit-scrollbar{display:none}
   .fy-feed.on{display:block;animation:fyIn .5s cubic-bezier(.2,.8,.3,1)}
+  .fy-feed.on.van-l{animation:fyInL .45s cubic-bezier(.2,.8,.3,1)}.fy-feed.on.van-r{animation:fyInR .45s cubic-bezier(.2,.8,.3,1)}
+  @keyframes fyInL{from{opacity:.3;transform:translateX(-40px)}to{opacity:1;transform:none}}
+  @keyframes fyInR{from{opacity:.3;transform:translateX(40px)}to{opacity:1;transform:none}}
+  .fy-feed{transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+  .fy-hint{position:absolute;z-index:7;inset:0;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity .3s}
+  .fy-hint.toon{opacity:1}
+  .fy-hint span{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font:600 14px "Instrument Sans",sans-serif;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+  .fy-hint i{font-style:normal;font-size:42px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))}
+  .fy-hint.toon i{animation:fyHand 1.3s ease-in-out 2}
+  @keyframes fyHand{0%{transform:translateY(60px);opacity:0}25%{opacity:1}80%{transform:translateY(-70px);opacity:1}100%{transform:translateY(-80px);opacity:0}}
   @keyframes fyIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
   .fy-slide video{opacity:0;transition:opacity .6s ease}.fy-slide video.klaar{opacity:1}
   .fy-slide{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
@@ -644,7 +654,7 @@
         <div class="fy-phone">
           <div class="fy-top"><button type="button" class="fy-tab on" data-cat="nieuws">Nieuws</button><button type="button" class="fy-tab" data-cat="dagjes">Erop uit</button><button type="button" class="fy-tab" data-cat="deals">Deals</button></div>
           <button type="button" class="fy-geluid" id="fy-geluid" aria-label="Geluid aan"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="currentColor"/><g class="uit-l" stroke="#fff"><path d="M16 9.5l5 5M21 9.5l-5 5"/></g><g class="aan-l" stroke="#111"><path d="M15.5 9a4 4 0 010 6M18 6.5a7.5 7.5 0 010 11"/></g></svg></button>
-          <div class="fy-screen"><div class="fy-feed on" data-cat="nieuws"><div class="fy-slide" data-views="1,4M" style="background:#000 url(videos/eigen/politiek-2.jpg) center/cover">
+          <div class="fy-screen"><div class="fy-hint" id="fy-hint" aria-hidden="true"><span><i>👆</i>Swipe omhoog</span></div><div class="fy-feed on" data-cat="nieuws"><div class="fy-slide" data-views="1,4M" style="background:#000 url(videos/eigen/politiek-2.jpg) center/cover">
             <video muted loop playsinline preload="none" poster="videos/eigen/politiek-2.jpg"><source src="videos/eigen/politiek-2.mp4" type="video/mp4"></video>
             <div class="fy-side"><span><i class="emo">❤️</i>147K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i>18K</span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Om 02:30 samen het debat kijken</p></div>
@@ -956,7 +966,9 @@
 (function(){
   var sec=document.getElementById("wie"); if(!sec){return;}
   var feeds=sec.querySelectorAll(".fy-feed"), zichtbaar=false;
-  function kies(cat){
+  var volgorde=[].map.call(feeds,function(f){return f.dataset.cat;});
+  function kies(cat,dir){
+    feeds.forEach(function(f){ f.classList.remove("van-l","van-r"); if(dir&&f.dataset.cat===cat){ f.classList.add(dir>0?"van-r":"van-l"); } });
     sec.querySelectorAll("[data-cat]").forEach(function(e){ e.classList.toggle("on",e.dataset.cat===cat); });
     feeds.forEach(function(f){ if(f.dataset.cat===cat){ f.scrollTop=0; } });
     update();
@@ -977,7 +989,23 @@
   if(gb){ gb.addEventListener("click",function(){ geluid=!geluid; gb.classList.toggle("aan",geluid); gb.setAttribute("aria-label",geluid?"Geluid uit":"Geluid aan"); sec.querySelectorAll(".fy-slide video").forEach(function(v){ v.muted=!geluid; }); update(); }); }
   sec.querySelectorAll(".fy-slide video").forEach(function(v){ function k(){ v.classList.add("klaar"); } v.addEventListener("playing",k); v.addEventListener("loadeddata",k); });
   feeds.forEach(function(f){ var t; f.addEventListener("scroll",function(){ clearTimeout(t); t=setTimeout(update,90); },{passive:true}); });
-  new IntersectionObserver(function(es){ es.forEach(function(e){ zichtbaar=e.isIntersecting; if(zichtbaar){ var p=sec.querySelector(".peel"); if(p){p.classList.add("on");} } update(); }); },{threshold:.35}).observe(sec.querySelector(".fy-phone"));
+  var scr=sec.querySelector(".fy-screen"), sx=0, sy=0, st=0;
+  scr.addEventListener("touchstart",function(e){ var t=e.touches[0]; sx=t.clientX; sy=t.clientY; st=Date.now(); },{passive:true});
+  scr.addEventListener("touchend",function(e){ var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.4&&Date.now()-st<700){
+      var huidig=sec.querySelector(".fy-feed.on").dataset.cat, i=volgorde.indexOf(huidig), n=i+(dx<0?1:-1);
+      if(n>=0&&n<volgorde.length){ kies(volgorde[n],dx<0?1:-1); }
+    } },{passive:true});
+  var hintGedaan=false;
+  function hint(){
+    if(hintGedaan||matchMedia("(prefers-reduced-motion:reduce)").matches){return;} hintGedaan=true;
+    var h=document.getElementById("fy-hint"), f=sec.querySelector(".fy-feed.on");
+    setTimeout(function(){ h.classList.add("toon"); f.style.transform="translateY(-64px)"; setTimeout(function(){ f.style.transform=""; },550);
+      setTimeout(function(){ f.style.transform="translateY(-64px)"; setTimeout(function(){ f.style.transform=""; },550); },1300);
+      setTimeout(function(){ h.classList.remove("toon"); },2700); },900);
+  }
+  scr.addEventListener("touchstart",function(){ hintGedaan=true; document.getElementById("fy-hint").classList.remove("toon"); },{passive:true,once:true});
+  new IntersectionObserver(function(es){ es.forEach(function(e){ zichtbaar=e.isIntersecting; if(zichtbaar){ var p=sec.querySelector(".peel"); if(p){p.classList.add("on");} hint(); } update(); }); },{threshold:.6}).observe(sec.querySelector(".fy-phone"));
 })();
 </script>
 <script>

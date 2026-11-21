@@ -114,7 +114,7 @@ var SAMENWERKINGEN = [
 
   function lijn(){
     var tr=track.getBoundingClientRect(), pts=[];
-    track.querySelectorAll(".tl-dot").forEach(function(d){ var r=d.getBoundingClientRect(); pts.push([r.left+r.width/2-tr.left, r.top+r.height/2-tr.top]); });
+    track.querySelectorAll(".tl-dot").forEach(function(d){ if(!d.offsetParent){return;} var r=d.getBoundingClientRect(); pts.push([r.left+r.width/2-tr.left, r.top+r.height/2-tr.top]); });
     if(!pts.length){return;}
     var a=pts[0], z=pts[pts.length-1];
     if(mobiel()){ pts.unshift([a[0]+14,a[1]-60]); pts.push([z[0]+14,z[1]+50]); }
@@ -183,6 +183,7 @@ var SAMENWERKINGEN = [
 
   /* vanuit de profieltelefoon: soepel naar een samenwerking scrollen en de video openen */
   window.tlGaNaar=function(pad){
+    var wk=document.getElementById("werk"); if(wk&&wk.classList.contains("tl-kort")){ wk.classList.remove("tl-kort"); dispatchEvent(new Event("resize")); }
     var doel=null, idx=0;
     track.querySelectorAll(".tl-item").forEach(function(el){ var s=el._s; if(!s||doel){return;} var lijstje=[s.video].concat((s.meer||[]).map(function(m){return "videos/"+m+".mp4";})); var k=lijstje.indexOf("videos/"+pad+".mp4"); if(k>-1){ doel=el; idx=k; } });
     if(!doel){ document.getElementById("werk").scrollIntoView({behavior:"smooth"}); return; }

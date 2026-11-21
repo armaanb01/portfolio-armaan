@@ -394,6 +394,9 @@
   a.hs-item:hover b{color:var(--accent-text)}
   .hs-link{position:relative;padding-right:44px;border-radius:0 14px 14px 0;transition:background .2s}
   .hs-go{position:absolute;top:6px;right:8px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#111;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+  .tl-meer{display:none;justify-content:center;margin-top:18px}
+  .tl-meer button{all:unset;cursor:pointer;font:600 15px "Instrument Sans",sans-serif;padding:12px 22px;border-radius:999px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+  @media (max-width:860px){ #werk.tl-kort .tl-track button.tl-item:nth-of-type(n+6){display:none} #werk.tl-kort .tl-meer{display:flex} }
   .hs-go svg{width:15px;height:15px}
   [data-slotbox] .reel .fix{white-space:nowrap}
   .m-cta{display:flex;align-items:center;justify-content:space-between;gap:12px 16px;flex-wrap:wrap;padding:16px 18px;border:1px dashed color-mix(in srgb,var(--accent) 60%,var(--line));border-radius:14px;background:var(--accent-soft)}
@@ -479,6 +482,7 @@
       <div class="nav-links">
         <a href="#merken">Merken</a>
         <a href="#werk">Werk</a>
+        <a href="#wie">Over mij</a>
         <a href="#formats">Formats</a>
         <a href="#boeken">Contact</a>
       </div>
@@ -583,7 +587,7 @@
     </div>
   </section>
 
-  <section id="werk" class="tl-section">
+  <section id="werk" class="tl-section tl-kort">
     <div class="wrap tl-head">
       <h2>Recente <span class="peel">samenwerkingen</span></h2>
       <p class="sub"><span>Van <b>Bol</b> tot <b>Paramount</b>: tik op een video voor het verhaal erachter <span class="tap">👆</span></span><svg class="sub-arrow" viewBox="0 0 46 46" aria-hidden="true"><path class="dl" d="M4 6C22 4 34 14 33 34"/><path d="M27 29L33 37L39 29"/></svg></p>
@@ -598,6 +602,7 @@
       <button class="tl-nav next" id="tl-next" type="button" aria-label="Volgende samenwerkingen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
     <div class="tl-progress"><span id="tl-count"></span><span class="tl-bar"><i id="tl-bar"></i></span><span>Sleep of klik →</span></div>
+    <div class="wrap tl-meer"><button type="button" id="tl-meer">Toon alle samenwerkingen ↓</button></div>
   </section>
 
 
@@ -834,7 +839,7 @@
     document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
   })();
 </script>
-<script src="tijdlijn.js?v=88"></script>
+<script src="tijdlijn.js?v=89"></script>
 
 <script>
 (function(){
@@ -986,5 +991,12 @@
     svg.innerHTML='<path d="M'+x0+' '+y0+' L'+x0+' '+(last-14)+' '+d+'"/>';
   }
   teken(); addEventListener("resize",teken); addEventListener("load",teken);
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById("tl-meer"), w=document.getElementById("werk"); if(!b||!w){return;}
+  var n=document.querySelectorAll("#tl-track button.tl-item").length; if(n){ b.textContent="Toon alle "+n+" samenwerkingen ↓"; }
+  b.addEventListener("click",function(){ w.classList.remove("tl-kort"); dispatchEvent(new Event("resize")); });
 })();
 </script>

@@ -602,7 +602,26 @@
   </section>
 
 
-  <section id="wie" class="fy">
+  <style>
+  .cb-map{position:relative;padding-left:34px}
+  .cb-lijnen{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+  .cb-lijnen path{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:7 8}
+  .cb-kern{position:relative;display:flex;align-items:center;gap:14px;margin:0 0 18px -34px}
+  .cb-kern img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);flex:none}
+  .cb-kern b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:18px}
+  .cb-kern span{display:inline-block;margin-top:4px;font:12px "DM Mono",monospace;background:var(--accent);color:#111;padding:3px 9px;border-radius:999px}
+  #wie .fy-cat{position:relative}
+  .cb-stat{display:block;margin-top:8px;font:12px "DM Mono",monospace;color:var(--muted)}
+  .fy-cat.on .cb-stat{color:var(--accent-text)}
+  @media (max-width:860px){
+    .cb-map{padding-left:0}.cb-kern{margin:0 auto 14px;justify-content:center}.cb-lijnen{display:none}
+    #wie .fy-cats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    #wie .fy-cat{flex-direction:column;align-items:center;text-align:center;padding:12px 6px;gap:6px;min-width:0}
+    #wie .fy-cat small,#wie .fy-cat em,#wie .fy-cat.on em{display:none}#wie .fy-cat b{font-size:14px}#wie .cb-stat{font-size:10.5px;margin-top:4px}
+    #wie .cb-kern{flex-direction:column;text-align:center;gap:8px}
+  }
+</style>
+<section id="wie" class="fy">
     <div class="wrap fy-grid">
       <div class="fy-tekst">
         <h2>Wie is <span class="peel">Armaan?</span></h2>

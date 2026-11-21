@@ -946,14 +946,16 @@
   var x=0, v=0, auto=-38, half=0, drag=false, lastX=0, lastT=0, idle=1;
   function maat(){ half=t.scrollWidth/2; } maat(); addEventListener("resize",maat); addEventListener("load",maat);
   function wrap(){ if(half>0){ while(x<=-half){x+=half;} while(x>0){x-=half;} } }
+  var actief=false, gezien=false;
+  if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ if(!gezien){ gezien=true; idle=0; setTimeout(function(){ actief=true; },700); } else { actief=true; } } else if(gezien){ actief=false; } }); },{threshold:.5}).observe(m); } else { actief=true; }
   var prev=performance.now();
   function tick(now){ var dt=Math.min(.05,(now-prev)/1000); prev=now;
-    if(!drag){ if(Math.abs(v)>4){ x+=v*dt; v*=Math.pow(.04,dt); idle=0; } else { v=0; idle=Math.min(1,idle+dt*1.2); x+=auto*idle*dt; } }
+    if(!drag){ if(Math.abs(v)>4){ x+=v*dt; v*=Math.pow(.04,dt); idle=0; } else { v=0; idle=Math.min(1,idle+dt*1.2); if(actief){ x+=auto*idle*dt; } } }
     wrap(); t.style.transform="translate3d("+x.toFixed(2)+"px,0,0)"; requestAnimationFrame(tick); }
   requestAnimationFrame(tick);
   m.addEventListener("pointerdown",function(e){ drag=true; v=0; lastX=e.clientX; lastT=performance.now(); m.classList.add("drag"); try{m.setPointerCapture(e.pointerId);}catch(_){} });
   m.addEventListener("pointermove",function(e){ if(!drag){return;} var n=performance.now(), dx=e.clientX-lastX; x+=dx; var dtt=Math.max(1,n-lastT); v=.8*(dx/dtt*1000)+.2*v; lastX=e.clientX; lastT=n; });
-  function los(){ if(!drag){return;} drag=false; m.classList.remove("drag"); if(performance.now()-lastT>80){v=0;} idle=0; }
+  function los(){ if(!drag){return;} drag=false; gezien=true; actief=true; m.classList.remove("drag"); if(performance.now()-lastT>80){v=0;} idle=0; }
   m.addEventListener("pointerup",los); m.addEventListener("pointercancel",los); m.addEventListener("lostpointercapture",los);
   m.addEventListener("wheel",function(e){ var d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:(e.shiftKey?e.deltaY:0); if(!d){return;} e.preventDefault(); x-=d; v=0; idle=0; },{passive:false});
 })();

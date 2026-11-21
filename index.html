@@ -355,12 +355,12 @@
   @keyframes fyInL{from{opacity:.3;transform:translateX(-40px)}to{opacity:1;transform:none}}
   @keyframes fyInR{from{opacity:.3;transform:translateX(40px)}to{opacity:1;transform:none}}
   .fy-feed{transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
-  .fy-hint{position:absolute;z-index:7;inset:0;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity .3s}
+  .fy-hint{position:absolute;z-index:7;inset:0;display:grid;place-items:center;pointer-events:none;opacity:0;transition:opacity .6s ease;background:radial-gradient(circle at 50% 55%,rgba(0,0,0,.28),transparent 60%)}
   .fy-hint.toon{opacity:1}
-  .fy-hint span{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font:600 14px "Instrument Sans",sans-serif;text-shadow:0 2px 8px rgba(0,0,0,.6)}
-  .fy-hint i{font-style:normal;font-size:42px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.5))}
-  .fy-hint.toon i{animation:fyHand 1.3s ease-in-out 2}
-  @keyframes fyHand{0%{transform:translateY(60px);opacity:0}25%{opacity:1}80%{transform:translateY(-70px);opacity:1}100%{transform:translateY(-80px);opacity:0}}
+  .fy-hint span{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;font:600 13px "Instrument Sans",sans-serif;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+  .fy-hint i{font-style:normal;font-size:30px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+  .fy-hint.toon i{animation:fyHand 2.2s cubic-bezier(.45,0,.25,1) 1 both}
+  @keyframes fyHand{0%{transform:translateY(34px);opacity:0}20%{opacity:1}75%{transform:translateY(-34px);opacity:1}100%{transform:translateY(-40px);opacity:0}}
   @keyframes fyIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
   .fy-slide video{opacity:0;transition:opacity .6s ease}.fy-slide video.klaar{opacity:1}
   .fy-slide{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow:hidden}
@@ -1002,9 +1002,7 @@
   function hint(){
     if(hintGedaan||matchMedia("(prefers-reduced-motion:reduce)").matches){return;} hintGedaan=true;
     var h=document.getElementById("fy-hint"), f=sec.querySelector(".fy-feed.on");
-    setTimeout(function(){ h.classList.add("toon"); f.style.transform="translateY(-64px)"; setTimeout(function(){ f.style.transform=""; },550);
-      setTimeout(function(){ f.style.transform="translateY(-64px)"; setTimeout(function(){ f.style.transform=""; },550); },1300);
-      setTimeout(function(){ h.classList.remove("toon"); },2700); },900);
+    setTimeout(function(){ h.classList.add("toon"); setTimeout(function(){ h.classList.remove("toon"); },2600); },900);
   }
   scr.addEventListener("touchstart",function(){ hintGedaan=true; document.getElementById("fy-hint").classList.remove("toon"); },{passive:true,once:true});
   new IntersectionObserver(function(es){ es.forEach(function(e){ zichtbaar=e.isIntersecting; if(zichtbaar){ var p=sec.querySelector(".peel"); if(p){p.classList.add("on");} hint(); } update(); }); },{threshold:.6}).observe(sec.querySelector(".fy-phone"));

@@ -1031,6 +1031,7 @@
     var verborgen=[].filter.call(document.querySelectorAll("#tl-track button.tl-item"),function(x){ return !x.offsetParent; });
     w.classList.remove("tl-kort");
     verborgen.forEach(function(x,i){ x.style.animationDelay=(i*0.09)+"s"; x.classList.add("tl-uit"); });
+    var tr=document.getElementById("tl-track"); if(tr){ setTimeout(function(){ scrollTo({top:tr.getBoundingClientRect().top+scrollY-90,behavior:"smooth"}); },80); }
     var lijnT=0, iv=setInterval(function(){ dispatchEvent(new Event("resize")); if((lijnT+=120)>1600){ clearInterval(iv); } },120);
   });
 })();

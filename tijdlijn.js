@@ -6,7 +6,7 @@
    meer:       optioneel, extra video's, bijv. ["bol/3","bol/4"] (map/nummer)
    resultaten: lijst van [getal, label]; de eerste staat op mobiel naast de video */
 var SAMENWERKINGEN = [
-  { wanneer:"2026-01", label:"jan–mei 2026", merk:"Bol", logo:"Bol", titel:"On-camera talent voor Bol",
+  { uitgelicht:true, wanneer:"2026-01", label:"jan–mei 2026", merk:"Bol", logo:"Bol", titel:"On-camera talent voor Bol",
     vraag:"Een vast gezicht voor de socials van Bol, die hun scripts en concepten tot leven brengt.",
     gemaakt:"Zo’n 8 shootdagen van januari tot mei, met meerdere TikTok-video’s voor de eigen kanalen van Bol.",
     resultaten:[["10M+","Views (met ad boost)"],["±8","Shootdagen"]], video:"videos/bol/2.mp4", poster:"videos/bol/2.jpg", meer:["bol/5","bol/6","bol/7","bol/1","bol/3","bol/4"] },
@@ -18,11 +18,11 @@ var SAMENWERKINGEN = [
     vraag:"Humoristische content die bij Fernandes past.",
     gemaakt:"Twee video’s op het account van Fernandes, waarin ik met een andere creator van cultuur wisselde.",
     resultaten:[["45K","Views"],["7K","Likes"],["1,2K","Shares"]], video:"videos/fernandes/1.mp4", poster:"videos/fernandes/1.jpg", meer:["fernandes/2"] },
-  { wanneer:"2026-03", merk:"Netflix", logo:"Netflix", titel:"‘Inside the Manosphere’",
+  { uitgelicht:true, wanneer:"2026-03", merk:"Netflix", logo:"Netflix", titel:"‘Inside the Manosphere’",
     vraag:"De documentaire ‘Inside the Manosphere’ onder de aandacht brengen.",
     gemaakt:"Een video op het account van Netflix, waarin ik mijn mening geef over de docu. Zelf gefilmd en geëdit.",
     resultaten:[["58K","Views"],["3K","Likes"],["352","Shares"]], video:"videos/netflix/1.mp4", poster:"videos/netflix/1.jpg" },
-  {geenCta:true, wanneer:"2026-06", merk:"Schiphol", logo:"Schiphol", titel:"Een dagje Schiphol",
+  { uitgelicht:true,geenCta:true, wanneer:"2026-06", merk:"Schiphol", logo:"Schiphol", titel:"Een dagje Schiphol",
     vraag:"Laten zien hoe relaxed je via Schiphol reist en wat er nog meer te beleven is: kom eerder en ontdek het gevarieerde horeca-aanbod en meer.",
     gemaakt:"Een Instagram Reel.",
     resultaten:[["1,5M","Views (met ad boost)"],["1,2K","Likes"],["60","Shares"]], video:"videos/schiphol/1.mp4", poster:"videos/schiphol/1.jpg" },
@@ -34,7 +34,7 @@ var SAMENWERKINGEN = [
     vraag:"Het nieuwe matras van Emma Sleep promoten.",
     gemaakt:"Een TikTok, ook geplaatst op Instagram.",
     resultaten:[["10K","Views"],["1K","Likes"],["45","Shares"]], video:"videos/emma-sleep/1.mp4", poster:"videos/emma-sleep/1.jpg" },
-  { wanneer:"2026-08", merk:"Sony Pictures", logo:"Sony Pictures", titel:"Insidious: Out of the Further",
+  { uitgelicht:true, wanneer:"2026-08", merk:"Sony Pictures", logo:"Sony Pictures", titel:"Insidious: Out of the Further",
     vraag:"De bioscooprelease van Insidious: Out of the Further promoten.",
     gemaakt:"Een video voor TikTok en Instagram.",
     resultaten:[["140K","Views"],["10,2K","Likes"],["4,5K","Shares"]], video:"videos/sony-pictures/1.mp4", poster:"videos/sony-pictures/1.jpg" },
@@ -46,7 +46,7 @@ var SAMENWERKINGEN = [
     vraag:"De bioscooprelease van Resident Evil promoten.",
     gemaakt:"Twee video’s voor TikTok en Instagram: een trendvideo en een video over de release.",
     resultaten:[["90K","Views"],["2,3K","Likes"],["900","Shares"]], video:"videos/sony-pictures/2.mp4", poster:"videos/sony-pictures/2.jpg", meer:["sony-pictures/3"] },
-  { wanneer:"2026-09", label:"sep–okt 2026", merk:"NS", logo:"NS", titel:"Shootdagen voor NS",
+  { uitgelicht:true, wanneer:"2026-09", label:"sep–okt 2026", merk:"NS", logo:"NS", titel:"Shootdagen voor NS",
     vraag:"Content voor de eigen socials van NS.",
     gemaakt:"Twee shootdagen met video’s voor de kanalen van NS.",
     kanaal:"NS", resultaten:[], video:"videos/ns/1.mp4", poster:"videos/ns/1.jpg", meer:["ns/2"] },
@@ -72,7 +72,7 @@ var SAMENWERKINGEN = [
 
   lijst.forEach(function(s,i){
     var b=document.createElement("button");
-    b.className="tl-item"; b.type="button"; b.setAttribute("aria-label",s.merk+": "+s.titel);
+    b.className="tl-item"+(s.uitgelicht?" tl-hl":""); b.type="button"; b.setAttribute("aria-label",s.merk+": "+s.titel);
     var d=s.label||datum(s.wanneer)||"";
     var r=(s.resultaten||[])[0];
     var stat=r?'<b>'+r[0]+'</b> '+r[1].toLowerCase():(s.kanaal?'gepost op het kanaal van <b>'+s.kanaal+'</b>':s.titel);

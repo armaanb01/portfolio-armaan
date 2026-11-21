@@ -358,7 +358,11 @@
   .fy-vb{position:absolute;z-index:2;top:64px;left:50%;translate:-50% 0;font:10px "DM Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:#111;background:rgba(255,214,10,.9);padding:3px 8px;border-radius:999px}
   .fy-side{position:absolute;z-index:2;right:10px;bottom:120px;display:flex;flex-direction:column;gap:16px;align-items:center;color:#fff;font:600 12px "Instrument Sans",sans-serif}
   .fy-side span{display:flex;flex-direction:column;align-items:center;gap:3px}
-  .fy-side i{font-style:normal;font-size:24px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+  .fy-side i{display:block;width:32px;height:32px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.45))}.fy-side i svg{width:100%;height:100%;display:block}
+  .fy-geluid{all:unset;color:#fff;cursor:pointer;position:absolute;z-index:6;top:62px;right:20px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.45);display:grid;place-items:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .fy-geluid svg{width:20px;height:20px}
+  .fy-geluid.aan{background:#FFD60A;color:#111}
+  .fy-geluid .uit-l{display:block}.fy-geluid .aan-l{display:none}.fy-geluid.aan .uit-l{display:none}.fy-geluid.aan .aan-l{display:block}
   .fy-info{position:absolute;z-index:2;left:14px;right:60px;bottom:22px;color:#fff}
   .fy-info b{font-family:"Bricolage Grotesque",sans-serif;font-size:15px}
   .fy-info p{margin:4px 0 0;font-size:13.5px;line-height:1.35}
@@ -608,54 +612,55 @@
       <div class="fy-phone-wrap">
         <div class="fy-phone">
           <div class="fy-top"><button type="button" class="fy-tab on" data-cat="nieuws">Nieuws</button><button type="button" class="fy-tab" data-cat="dagjes">Erop uit</button><button type="button" class="fy-tab" data-cat="deals">Deals</button></div>
+          <button type="button" class="fy-geluid" id="fy-geluid" aria-label="Geluid aan"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor" stroke="currentColor"/><g class="uit-l" stroke="#fff"><path d="M16 9.5l5 5M21 9.5l-5 5"/></g><g class="aan-l" stroke="#111"><path d="M15.5 9a4 4 0 010 6M18 6.5a7.5 7.5 0 010 11"/></g></svg></button>
           <div class="fy-screen"><div class="fy-feed on" data-cat="nieuws"><div class="fy-slide" data-views="1,4M">
             <video muted loop playsinline preload="none" poster="videos/eigen/politiek-2.jpg"><source src="videos/eigen/politiek-2.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>147K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>147K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i>11K</span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Om 02:30 samen het debat kijken</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>1,4M</b> views</div>
           </div><div class="fy-slide" data-views="1,2M">
             <video muted loop playsinline preload="none" poster="videos/eigen/politiek-1.jpg"><source src="videos/eigen/politiek-1.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>113K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>113K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i>34K</span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Kandidaten die zelf voor de rechter stonden</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>1,2M</b> views</div>
           </div></div><div class="fy-feed" data-cat="dagjes"><div class="fy-slide" data-views="3,3M">
             <video muted loop playsinline preload="none" poster="videos/eigen/love-is-blind.jpg"><source src="videos/eigen/love-is-blind.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>186K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>186K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i>56K</span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Love is Blind-event in Utrecht</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>3,3M</b> views</div>
           </div><div class="fy-slide" data-views="712K">
             <video muted loop playsinline preload="none" poster="videos/eigen/squid-game.jpg"><source src="videos/eigen/squid-game.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>74K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>74K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i>10K</span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Gratis Squid Game-escape room</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>712K</b> views</div>
           </div><div class="fy-slide" data-views="171K">
             <video muted loop playsinline preload="none" poster="videos/eigen/hidden-gem.jpg"><source src="videos/eigen/hidden-gem.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>9,3K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>9,3K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i></span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Hidden gem voor de laatste dagen zon</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>171K</b> views</div>
           </div><div class="fy-slide" data-views="161K">
             <video muted loop playsinline preload="none" poster="videos/eigen/toverland.jpg"><source src="videos/eigen/toverland.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>12,6K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>12,6K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i></span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Een dagje Toverland</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>161K</b> views</div>
           </div></div><div class="fy-feed" data-cat="deals"><div class="fy-slide" data-views="1,9M">
             <video muted loop playsinline preload="none" poster="videos/eigen/slagharen.jpg"><source src="videos/eigen/slagharen.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>129K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>129K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i>63K</span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Slagharen-abonnement voor bijna niks</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>1,9M</b> views</div>
           </div><div class="fy-slide" data-views="1,1M">
             <video muted loop playsinline preload="none" poster="videos/eigen/nike-af1.jpg"><source src="videos/eigen/nike-af1.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>49K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>49K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i>13K</span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Nike Air Force 1-deal bij Zalando</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>1,1M</b> views</div>
           </div><div class="fy-slide" data-views="619K">
             <video muted loop playsinline preload="none" poster="videos/eigen/stembureau.jpg"><source src="videos/eigen/stembureau.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>38K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>38K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i></span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>Werken op een stembureau: de sidehustle waar je op slaapt</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>619K</b> views</div>
           </div><div class="fy-slide" data-views="172K">
             <video muted loop playsinline preload="none" poster="videos/eigen/alpro-dupe.jpg"><source src="videos/eigen/alpro-dupe.mp4" type="video/mp4"></video>
-            <div class="fy-side"><span><i>❤️</i>7,8K</span><span><i>💬</i></span><span><i>↗</i></span></div>
+            <div class="fy-side"><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21.2l-1.4-1.3C5.4 15.2 2 12.1 2 8.3 2 5.2 4.4 2.8 7.5 2.8c1.7 0 3.4.8 4.5 2.1 1.1-1.3 2.8-2.1 4.5-2.1 3.1 0 5.5 2.4 5.5 5.5 0 3.8-3.4 6.9-8.6 11.6L12 21.2z"/></svg></i>7,8K</span><span><i><svg viewBox="0 0 24 24" fill="#fff"><path d="M13.6 3.2l9 8.1c.4.4.4 1 0 1.4l-9 8.1c-.6.5-1.6.1-1.6-.7v-3.9c-5.5 0-8.6 1.7-10.6 5.4-.3.5-1 .3-1-.3.6-6.4 4.1-11 11.6-11.6V3.9c0-.8 1-1.2 1.6-.7z"/></svg></i></span></div>
             <div class="fy-info"><b>@armaanbanaan</b><p>De Alpro-kokosmelk dupe bij Albert Heijn</p></div>
             <div class="fy-stat"><span class="fy-eye">▶</span><b>172K</b> views</div>
           </div></div></div>
@@ -918,10 +923,12 @@
       f.querySelectorAll(".fy-slide").forEach(function(s,i){
         var act=on&&zichtbaar&&i===idx, v=s.querySelector("video");
         s.classList.toggle("act",act);
-        if(act){ if(v.preload!=="auto"){v.preload="auto";} var p=v.play(); if(p&&p.catch){p.catch(function(){});} } else { v.pause(); }
+        if(act){ v.muted=!geluid; if(v.preload!=="auto"){v.preload="auto";} var p=v.play(); if(p&&p.catch){p.catch(function(){});} } else { v.pause(); }
       });
     });
   }
+  var geluid=false, gb=document.getElementById("fy-geluid");
+  if(gb){ gb.addEventListener("click",function(){ geluid=!geluid; gb.classList.toggle("aan",geluid); gb.setAttribute("aria-label",geluid?"Geluid uit":"Geluid aan"); sec.querySelectorAll(".fy-slide video").forEach(function(v){ v.muted=!geluid; }); update(); }); }
   feeds.forEach(function(f){ var t; f.addEventListener("scroll",function(){ clearTimeout(t); t=setTimeout(update,90); },{passive:true}); });
   new IntersectionObserver(function(es){ es.forEach(function(e){ zichtbaar=e.isIntersecting; if(zichtbaar){ var p=sec.querySelector(".peel"); if(p){p.classList.add("on");} } update(); }); },{threshold:.35}).observe(sec.querySelector(".fy-phone"));
 })();

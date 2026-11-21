@@ -201,6 +201,7 @@
   .c-hand{position:relative;height:120px;font-size:104px;line-height:1}
   .c-hand span{position:absolute;left:50%;top:0;translate:-50% 0;display:block}
   .c-hand .ch-s{opacity:0}
+  .c-hand .ch-ring{width:120px;height:120px;top:0;border-radius:50%;border:6px solid var(--accent);opacity:0}
   .c-klaar h2{font-size:clamp(34px,5.4vw,58px)!important}
   .c-conf{position:absolute;left:50%;top:22%;width:10px;height:14px;border-radius:3px;pointer-events:none;z-index:3}
   .contact p{color:var(--muted);max-width:48ch;margin:16px auto 28px;position:relative}
@@ -793,7 +794,7 @@
           <button class="btn btn-primary" type="submit">Verstuur aanvraag</button>
           <p class="c-status" role="status"></p>
         </form>
-        <div class="c-klaar" id="c-klaar" hidden aria-live="polite"><div class="c-hand" aria-hidden="true"><span class="ch-l">🫱</span><span class="ch-r">🫲</span><span class="ch-s">🤝</span></div><h2>Letsgoooo, we gaan het fixen!</h2><p>Ik kom snel bij je terug.</p></div>
+        <div class="c-klaar" id="c-klaar" hidden aria-live="polite"><div class="c-hand" aria-hidden="true"><span class="ch-ring"></span><span class="ch-s">🤝</span></div><h2>Letsgoooo, we gaan het fixen!</h2><p>Ik kom snel bij je terug.</p></div>
         <p class="c-alt">Liever geen formulier? Stuur me gewoon een DM op <a href="https://www.instagram.com/armaanbanaan" target="_blank" rel="noopener">Instagram</a> 👋</p>
       </div>
     </div>
@@ -855,10 +856,9 @@
         var cs=getComputedStyle(box), h1=kl.offsetHeight+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom);
         box.animate([{height:h0+"px"},{height:h1+"px"}],{duration:550,easing:"cubic-bezier(.3,1.2,.4,1)"}).onfinish=function(){ box.style.height=""; };
         box.style.height=h1+"px";
-        var hl=kl.querySelector(".ch-l"), hr=kl.querySelector(".ch-r"), hs=kl.querySelector(".ch-s");
-        hl.animate([{transform:"translateX(-260px) rotate(-25deg)",opacity:0},{transform:"translateX(-34px) rotate(0)",opacity:1,offset:.75},{transform:"translateX(-6px)",opacity:1}],{duration:420,easing:"cubic-bezier(.3,.9,.4,1)",fill:"forwards"});
-        hr.animate([{transform:"translateX(260px) rotate(25deg)",opacity:0},{transform:"translateX(34px) rotate(0)",opacity:1,offset:.75},{transform:"translateX(6px)",opacity:1}],{duration:420,easing:"cubic-bezier(.3,.9,.4,1)",fill:"forwards"});
-        setTimeout(function(){ [hl,hr].forEach(function(h){ h.getAnimations().forEach(function(a){a.cancel();}); h.style.opacity=0; }); hs.animate([{opacity:0,transform:"scale(.6)"},{opacity:1,transform:"scale(1.45) rotate(-8deg)",offset:.45},{opacity:1,transform:"scale(1) rotate(0)"}],{duration:520,easing:"cubic-bezier(.3,1.6,.5,1)",fill:"forwards"}); },420);
+        var hs=kl.querySelector(".ch-s"), ring=kl.querySelector(".ch-ring");
+        hs.animate([{opacity:0,transform:"scale(.2) rotate(-30deg)"},{opacity:1,transform:"scale(1.35) rotate(6deg)",offset:.35},{opacity:1,transform:"scale(1) rotate(0)",offset:.5},{opacity:1,transform:"translateY(-10px) rotate(-6deg)",offset:.62},{opacity:1,transform:"translateY(8px) rotate(5deg)",offset:.74},{opacity:1,transform:"translateY(-6px) rotate(-3deg)",offset:.86},{opacity:1,transform:"none"}],{duration:1100,easing:"ease-out",fill:"forwards"});
+        ring.animate([{opacity:.9,transform:"scale(.3)"},{opacity:0,transform:"scale(2.4)"}],{duration:700,delay:300,easing:"cubic-bezier(.2,.8,.3,1)",fill:"forwards"});
         [].forEach.call(kl.querySelectorAll("h2,p"),function(el,k){ el.animate([{opacity:0,transform:"translateY(14px)"},{opacity:1,transform:"none"}],{duration:420,delay:520+k*110,easing:"cubic-bezier(.3,1.4,.5,1)",fill:"backwards"}); });
         var kleuren=["#FFD60A","#111111","#FFE680","#FE2C55","#FFD60A"];
         for(var q=0;q<70;q++){ var c=document.createElement("i"); c.className="c-conf"; c.style.background=kleuren[q%kleuren.length]; box.appendChild(c);
